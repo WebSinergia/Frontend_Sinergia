@@ -1,0 +1,41 @@
+<h5 class="title">Get QR by DNI</h5>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-container">
+    <div class="form-group">
+      <label for="dni">DNI:</label>
+      <input
+        id="dni"
+        type="text"
+        formControlName="us_dni"
+        class="form-control"
+        required
+        minlength="8"
+        pattern="[0-9]{8}"
+      />
+      <div
+        *ngIf="form.get('dni')?.invalid && form.get('dni')?.touched"
+        class="error"
+      >
+        DNI debe tener 8 dígitos numéricos.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      Enviar
+    </button>
+  </div>
+</form>
+
+<div *ngIf="user">
+  <div class="user-container">
+    <p>
+      <strong>Nombre:</strong> {{ user.us_nombres }} {{ user.us_apellidos }}
+    </p>
+    <p><strong>DNI:</strong> {{ user.us_dni }}</p>
+    <p><strong>Teléfono:</strong> {{ user.us_telefono }}</p>
+    <p><strong>Zona:</strong> {{ user.us_zone }}</p>
+    <h5>QR Code</h5>
+    <img [src]="getQrCodeUrl(user.us_qrcode)" alt="QR Code" />
+  </div>
+</div>

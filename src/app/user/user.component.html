@@ -1,0 +1,39 @@
+<div>
+  <label for="zona">Filtrar por Zona:</label>
+  <select
+    [(ngModel)]="selectedCategory"
+    id="zona"
+    (ngModelChange)="filterByZone($event)"
+  >
+    <option *ngFor="let zone of zones" [value]="zone">{{ zone }}</option>
+  </select>
+</div>
+
+<div>
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Sexo</th>
+        <th>Edad</th>
+        <th>Zona</th>
+        <th>Pago</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUserData">
+        <td>{{ user.us_nombres }}</td>
+        <td>{{ user.us_apellidos }}</td>
+        <td>{{ user.us_dni }}</td>
+        <td>{{ user.us_zone }}</td>
+        <td>
+            <button>Ver Imagen</button>
+        </td>
+        <td>
+            <button>Confimar Pago</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

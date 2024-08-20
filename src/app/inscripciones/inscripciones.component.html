@@ -1,0 +1,166 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- NAVBAR -->
+<div class="inicio">
+  <div>
+    <div class="row">
+      <div class="container-xs">
+        <div class="navbar">
+          <img
+            src="/assets/img_close.png"
+            alt="Close Button"
+            class="navbar__icon--close"
+          />
+          <div class="navbar__item">
+            <h1 class="ui heading size-headingxs">Inicio</h1>
+          </div>
+          <div class="navbar__item navbar__item-1">
+            <h2 class="ui heading size-headingxs">Consultar QR</h2>
+          </div>
+          <div class="navbar__item navbar__item-2">
+            <h2 class="navbar__link--inscribirse ui heading size-headingxs">
+              Inscribirse
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="payment-container">
+    <h2 class="heading-title">Checkout</h2>
+    <div class="image-container">
+      <img class="qr-image" [src]="qrImageUrl" alt="qr-image" />
+      <div class="text-information">
+        <h4>Modalidad: {{ this.imageData.modalidad }}</h4>
+        <h6>Celular: {{ this.imageData.celular }}</h6>
+        <h6>Nombre: {{ this.imageData.name }}</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="payment-container" style="margin-bottom: 1rem">
+    <div class="image-container">
+      <h2 class="heading-title">Formulario</h2>
+      <div class="image-attach" (click)="fileInput.click()">
+        <input
+          type="file"
+          #fileInput
+          (change)="onFileSelected($event)"
+          style="display: none"
+        />
+        <p>Haz clic para adjuntar una imagen</p>
+      </div>
+      <button (click)="saveImage()">Enviar Imagen</button>
+    </div>
+  </div>
+
+  <div class="payment-container" style="margin-bottom: 1rem">
+    <div class="image-container">
+      <ng-container *ngIf="generatedQrUrl; else noQrMessage">
+        <img class="qr-image" [src]="generatedQrUrl" alt="qr-image" />
+      </ng-container>
+      <ng-template #noQrMessage>
+        <h5 class="no-qr-message" style="font-size:16px">Debes pagar la cuota para acceder a tu QR</h5>
+      </ng-template>
+      <div class="text-information">
+        <h6>Nombre: {{ this.user.us_nombres + ' ' + this.user.us_apellidos}}</h6>
+        <h6>Zona: {{ this.user.us_zone }}</h6>
+        <h6>DNI: {{ this.user.us_dni }}</h6>
+      </div>
+    </div>
+  </div>
+  
+  <!-- footer section -->
+  <footer class="footer">
+    <div class="footer__column">
+      <div class="footer__gradient"></div>
+      <div class="footer-content">
+        <div class="footer__row container-xs">
+          <div class="footer__sections">
+            <img
+              src="/assets/img_close.png"
+              alt="Close Image"
+              class="footer__icon--close"
+            />
+            <a href="Inicio" target="_blank" rel="noreferrer">
+              <p class="footer__text ui text size-texts">Inicio</p>
+            </a>
+            <a
+              href="Sinergía"
+              target="_blank"
+              rel="noreferrer"
+              class="synergy-link-link"
+            >
+              <p class="footer__text ui text size-texts">Sinergía</p>
+            </a>
+            <a href="Talleres" target="_blank" rel="noreferrer">
+              <p class="footer__text ui text size-texts">Talleres</p>
+            </a>
+            <a
+              href="Speakers"
+              target="_blank"
+              rel="noreferrer"
+              class="synergy-link-link"
+            >
+              <p class="footer__text ui text size-texts">Speakers</p>
+            </a>
+            <a href="#">
+              <p class="footer__text ui text size-texts">
+                Consultar QR
+              </p>
+            </a>
+            <a
+              href="Inscripción"
+              target="_blank"
+              rel="noreferrer"
+              class="synergy-link-link"
+            >
+              <p class="footer__text ui text size-texts">
+                Inscripción
+              </p>
+            </a>
+            <a
+              href="Preguntas"
+              target="_blank"
+              rel="noreferrer"
+              class="synergy-link-link"
+            >
+              <p class="footer__text ui text size-texts">Preguntas</p>
+            </a>
+          </div>
+          <div class="footer__social-media">
+            <button
+              class="footer__icon--facebook ui button white_a700_28 size-xs fill round"
+            >
+              <img src="/assets/img_facebook.svg" />
+            </button>
+            <button
+              class="footer__icon--facebook ui button white_a700_28 size-xs fill round"
+            >
+              <img src="/assets/img_trash.svg" />
+            </button>
+            <img
+              src="/assets/img_info.svg"
+              alt="Info Image"
+              class="footer__icon--info"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__divider"></div>
+        <div class="footer__copyright container-xs">
+          <p class="footer__text ui text size-textxs">
+            Copyright © 2024 Nuevas Generaciones | All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
