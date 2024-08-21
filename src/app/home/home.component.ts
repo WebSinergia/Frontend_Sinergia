@@ -39,25 +39,22 @@ export class HomeComponent {
     us_telefono: string,
     us_zone: string
   ): void {
-    const userData = {
-      us_nombres,
-      us_apellidos,
-      us_dni,
-      us_telefono,
-      us_zone,
-    };
+    const userData = { us_nombres, us_apellidos, us_dni, us_telefono, us_zone };
 
-    /*---- REORDENAR FLUJO PARA EL QUE CUMPLA LOS 3 STEPS ----*/
-    this.inscripcionesService.createUser(userData).subscribe(
-      (response) => {
-        console.log('Formulario enviado con éxito', response);
-        this.getNewUserData(us_dni);
-        this.sharedDataService.setUserData(userData);
-        this.router.navigate(['/inscriptions']);
-      },
-      (error) => {
-        console.error('Error al enviar el formulario', error);
-      }
-    );
+    localStorage.setItem('userData', JSON.stringify(userData));
+    this.router.navigate(['/inscriptions']);
+
+    // this.inscripcionesService.createUser(userData).subscribe(
+    //   (response) => {
+    //     console.log('Formulario enviado con éxito', response);
+    //     localStorage.setItem('userData', JSON.stringify(userData));
+    //     // this.getNewUserData(us_dni);
+    //     // this.sharedDataService.setUserData(userData);
+    //     this.router.navigate(['/inscriptions']);
+    //   },
+    //   (error) => {
+    //     console.error('Error al enviar el formulario', error);
+    //   }
+    // );
   }
 }

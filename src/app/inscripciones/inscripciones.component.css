@@ -96,7 +96,9 @@
 
 .image-attach {
   width: 100%;
+  max-width: 340px;
   height: 150px;
+  margin-top: 0.5rem;
   border: 2px dashed #ffffff;
   border-radius: var(--radius-xs);
   display: flex;
@@ -116,13 +118,18 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.p-form {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 1rem;
+}
+
 button {
   background-color: var(--primary-color);
   border-radius: var(--radius-xs);
   color: var(--white);
   font-family: "Poppins", sans-serif;
   padding: 1rem 0.5;
-  margin: 1rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;

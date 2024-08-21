@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
@@ -16,19 +16,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 const searchRoutes: Route[] = [
-    {
-      path: '',
-      component: HomeComponent
-    }
-  ];
+  {
+    path: '',
+    component: HomeComponent,
+  },
+];
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-  ],
+  declarations: [HomeComponent],
   imports: [
     RouterModule.forChild(searchRoutes),
     RouterModule,
@@ -49,5 +47,4 @@ const searchRoutes: Route[] = [
     ReactiveFormsModule,
   ],
 })
-
-export class HomeModule { }
+export class HomeModule {}

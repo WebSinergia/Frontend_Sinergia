@@ -19,10 +19,12 @@ import { MatStepperModule } from '@angular/material/stepper';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { storageDataGuard } from '../../guards/storage-data.guard';
 
 const inscriptionsRoutes: Route[] = [
     {
       path: '',
+      canActivate: [storageDataGuard],
       component: InscripcionesComponent
     }
   ];

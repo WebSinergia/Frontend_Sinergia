@@ -15,6 +15,7 @@ export class InscripcionesComponent {
   qrImageUrl: string = 'http://127.0.0.1:8000/conferencia/media/zone-images/zona2.jpeg';
   generatedQrUrl: string = '';
   user: any;
+  selectedFileName: string | null = "";
 
   userData: any;
   imageData: any;
@@ -39,7 +40,7 @@ export class InscripcionesComponent {
       this.userData = data;
     });
 
-    this.getImage(this.userData.us_zone)
+    // this.getImage(this.userData.us_zone)
   }
 
   getNewUserData(): void {
@@ -77,6 +78,8 @@ export class InscripcionesComponent {
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
+      this.selectedFileName = file.name;
+      console.log('Selected file', this.selectedFileName);
       const formData = new FormData();
       formData.append('file', file);
       //formData.append('zone', this.form.get('us_zone')?.value);
