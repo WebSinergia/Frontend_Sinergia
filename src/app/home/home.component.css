@@ -40,13 +40,12 @@
 }
 
 .rowopacidadline {
-  height: 800px;
   background-image: url('../../assets/img_group_18.png');
   background-size: cover;
   background-repeat: no-repeat;
-  @media only screen and (max-width: 1050px) {
-    height: auto;
-  }
+  background-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .row {
@@ -67,27 +66,18 @@
   margin-bottom: 684px;
   display: flex;
   justify-content: center;
-  @media only screen and (max-width: 1050px) {
-    padding-left: 20px;
-    padding-right: 20px;
-  } 
 }
 
 .navbar {
-  gap: var(--space-xl);
-  background-color: var(--color_white_a700_28);
-  display: flex;
-  width: 50%;
-  justify-content: space-evenly;
+
+  height: 68px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  display: inline-flex;
+  justify-content: flex-start;
   align-items: center;
-  padding: var(--space-lg);
-  border-radius: var(--radius-lg);
-  @media only screen and (max-width: 1050px) {
-    width: 100%;
-  }
-  @media only screen and (max-width: 550px) {
-    flex-direction: column;
-  }
+  gap: 24px;
 }
 
 .navbar__item {
@@ -100,12 +90,11 @@
 }
 
 .navbar__icon--close {
-  height: 44px;
   width: 44px;
-  object-fit: cover;
-  @media only screen and (max-width: 550px) {
-    width: 100%;
-  }
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .navbar__item {
@@ -116,33 +105,25 @@
 } */
 
 .navbar__item-1 {
-  background-color: var(--black);
-  border-radius: var(--radius-md);
-  /* display: flex;
+  height: 100%;
+  padding: 14px 24px;
+  background: black;
+  border-radius: 16px;
+  display: inline-flex;
   justify-content: center;
-  align-items: center; */
-  width: 25%;
-  height: 50px;
-  @media only screen and (max-width: 550px) {
-    align-self: stretch;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  align-items: center;
+  gap: 8px;
 }
 
 .navbar__item-2 {
-  background-color: var(--white);
-  /* display: flex;
+  height: 100%;
+  padding: 14px 24px;
+  background: white;
+  border-radius: 16px;
+  display: inline-flex;
   justify-content: center;
-  align-items: center; */
-  border-radius: var(--radius-md);
-  width: 25%;
-  height: 50px;
-  @media only screen and (max-width: 550px) {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  align-items: center;
+  gap: 8px;
 }
 
 .navbar__link--inscribirse {
@@ -201,21 +182,23 @@
 
 .section__stack {
   height: 476px;
-  position: relative;
-}
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 44px;}
 
 .section__stack__title-row {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  margin-top: auto;
-  right: 0px;
-  left: 0px;
-  margin-bottom: auto;
-  @media only screen and (max-width: 1050px) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  align-self: stretch;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 32px;
+  word-wrap: break-word;
 }
 
 .section__stack__title {
@@ -227,7 +210,6 @@
 .section__stack__content-column {
   gap: var(--space-3xl);
   display: flex;
-  position: absolute;
   bottom: 0px;
   margin-bottom: auto;
   right: 0px;
@@ -277,8 +259,6 @@
   justify-content: center;
   padding: 152px 56px;
   border-radius: var(--radius-lg);
-  @media only screen and (max-width: 1050px) {
-    padding: 20px;
   }
 
   @media only screen and (max-width: 550px) {
