@@ -40,7 +40,6 @@ export class HomeComponent {
     us_zone: string
   ): void {
     const userData = { us_nombres, us_apellidos, us_dni, us_telefono, us_zone };
-
     localStorage.setItem('userData', JSON.stringify(userData));
     this.router.navigate(['/inscriptions']);
 

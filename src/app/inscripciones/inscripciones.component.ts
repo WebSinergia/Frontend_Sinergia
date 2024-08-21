@@ -12,10 +12,11 @@ import { SharedDataService } from '../../services/shared-data.service';
 export class InscripcionesComponent {
   imageForm: FormGroup;
   zonas: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-  qrImageUrl: string = 'http://127.0.0.1:8000/conferencia/media/zone-images/zona2.jpeg';
+  qrImageUrl: string =
+    'http://127.0.0.1:8000/conferencia/media/zone-images/zona2.jpeg';
   generatedQrUrl: string = '';
   user: any;
-  selectedFileName: string | null = "";
+  selectedFileName: string | null = '';
 
   userData: any;
   imageData: any;
@@ -36,24 +37,26 @@ export class InscripcionesComponent {
   }
 
   getData() {
-    this.sharedDataService.userData$.subscribe(data => {
-      this.userData = data;
-    });
-
-    // this.getImage(this.userData.us_zone)
+    let storedData = localStorage.getItem('userData');
+    if (storedData) {
+      this.userData = JSON.parse(storedData);
+      this.getImage(this.userData.us_zone);
+    } else {
+      console.warn('No hay datos en el local storage');
+    }
   }
 
   getNewUserData(): void {
-    this.inscripcionesService.getUserByDni(this.userData.us_dni).subscribe(
-      (response) => {
+    this.inscripcionesService
+      .getUserByDni(this.userData.us_dni)
+      .subscribe((response) => {
         console.log('Backend Response 200', response);
-        this.user = response
+        this.user = response;
         this.generatedQrUrl = this.getQrCodeUrl(this.user.us_qrcode);
-      }
-    )
+      });
   }
 
-  saveImage(){
+  saveImage() {
     this.getNewUserData();
   }
 
@@ -80,18 +83,10 @@ export class InscripcionesComponent {
     if (file) {
       this.selectedFileName = file.name;
       console.log('Selected file', this.selectedFileName);
-      const formData = new FormData();
-      formData.append('file', file);
-      //formData.append('zone', this.form.get('us_zone')?.value);
-
-      // this.http.post('API_URL_TO_UPLOAD_IMAGE', formData).subscribe(response => {
-      //   console.log('Imagen subida exitosamente', response);
-      // });
     }
   }
 
   downloadQR() {
-    // Lógica para descargar el QR
     const link = document.createElement('a');
     link.href = this.generatedQrUrl;
     link.download = 'qr_code.png';
