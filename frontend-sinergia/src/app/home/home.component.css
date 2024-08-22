@@ -243,7 +243,6 @@
 }
 
 .section__stack__content-description {
-  margin-bottom: 98px;
   width: 100%;
   line-height: 22px;
 }
@@ -675,7 +674,6 @@
 }
 
 .leadership-workshop-description {
-  gap: var(--space-sm);
   display: flex;
   background-color: var(--background);
   width: 100%;
@@ -696,17 +694,14 @@
 }
 
 .speaker-profile {
-  gap: var(--space-2xl);
-  display: flex;
-  background-color: var(--background);
-  width: 24%;
+  padding: 24px;
+  background: #353535;
+  border-radius: 24px;
+  display: inline-flex;
   flex-direction: column;
-  justify-content: center;
-  padding: var(--space-2xl);
-  border-radius: var(--radius-lg);
-  @media only screen and (max-width: 1050px) {
-    width: 100%;
-  }
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
 }
 
 .speaker-profile__image {
@@ -737,11 +732,12 @@
 }
 
 .inscription__form {
-  gap: var(--space-3xl);
-  display: flex;
-  @media only screen and (max-width: 1050px) {
-    flex-direction: column;
-  }
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .form__input {
