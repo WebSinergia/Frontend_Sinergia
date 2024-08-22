@@ -759,7 +759,6 @@
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
-  }
 }
 
 .speaker-profile__image {
@@ -782,17 +781,6 @@
 .hashtag-section {
   width: 100%;
   height: 100%;
-  padding: 24px 24px;
-  background-image: url('https://via.placeholder.com/1392x56');
-}
-
-.hashtag-item {
-  color: white;
-  font-size: 24px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  line-height: 24px;
-  word-wrap: break-word;
 }
 
 .inscription__form {
