@@ -1,0 +1,21 @@
+# Query: faq-section__question ui heading size-subtitle
+# ContextLines: 1
+
+4 resultados - 1 archivo
+
+Frontend_Sinergia/frontend-sinergia/src/app/home/home.component.html:
+  403                        <h4
+  404:                         class="faq-section__question ui heading size-subtitle"
+  405                          style="font-size: 18px"
+
+  420                        <h4
+  421:                         class="faq-section__question ui heading size-subtitle"
+  422                          style="font-size: 18px"
+
+  437                        <h4
+  438:                         class="faq-section__question ui heading size-subtitle"
+  439                          style="font-size: 18px"
+
+  453                        <h4
+  454:                         class="faq-section__question ui heading size-subtitle"
+  455                          style="font-size: 18px"
