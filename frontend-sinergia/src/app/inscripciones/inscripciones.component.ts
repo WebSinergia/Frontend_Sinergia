@@ -12,20 +12,18 @@ import { SharedDataService } from '../../services/shared-data.service';
 export class InscripcionesComponent {
   imageForm: FormGroup;
   zonas: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-  qrImageUrl: string =
-    'http://127.0.0.1:8000/conferencia/media/zone-images/zona2.jpeg';
+  qrImageUrl: string = '';
   generatedQrUrl: string = '';
   user: any;
   selectedFileName: string | null = '';
+  selectedFile: File | null = null;
 
   userData: any;
   imageData: any;
 
   constructor(
-    private router: Router,
     private inscripcionesService: InscripcionesService,
     private fb: FormBuilder,
-    private sharedDataService: SharedDataService
   ) {
     this.imageForm = this.fb.group({
       image: [null, Validators.required],
@@ -46,6 +44,20 @@ export class InscripcionesComponent {
     }
   }
 
+  saveImage() {
+    this.userData.append('us_imagen_pago', this.selectedFile);
+    console.log(this.userData);
+    this.inscripcionesService.createUser(this.userData).subscribe(
+      (response) => {
+        console.log('Formulario enviado con éxito', response);
+      },
+      (error) => {
+        console.error('Error al enviar el formulario', error);
+      }
+    );
+    this.getNewUserData();
+  }
+
   getNewUserData(): void {
     this.inscripcionesService
       .getUserByDni(this.userData.us_dni)
@@ -54,10 +66,6 @@ export class InscripcionesComponent {
         this.user = response;
         this.generatedQrUrl = this.getQrCodeUrl(this.user.us_qrcode);
       });
-  }
-
-  saveImage() {
-    this.getNewUserData();
   }
 
   getQrCodeUrl(qrCodeUrl: string): string {
@@ -78,11 +86,11 @@ export class InscripcionesComponent {
     );
   }
 
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.selectedFileName = file.name;
-      console.log('Selected file', this.selectedFileName);
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      this.selectedFileName = this.selectedFile.name;
     }
   }
 

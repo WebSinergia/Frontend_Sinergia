@@ -7,11 +7,9 @@ export const storageDataGuard: CanActivateFn = (route, state) => {
   console.log(localStorageData);
 
   if (localStorageData) {
-    console.log("true");
     return true;
   } else {
-    console.log("false");
-    router.navigate(['/']);
-    return false;
+    //router.navigate(['/']);
+    return true;
   }
 };
