@@ -53,10 +53,10 @@ export class InscripcionesService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  createUser(user: UserCreate): Observable<UserCreate> {
+  createUser(user: any): Observable<any> {
     const url = `${this.basePath}/create`;
     return this.http
-      .post<UserCreate>(url, user)
+      .post<any>(url, user)
       .pipe(retry(2), catchError(this.handleError));
   }
 

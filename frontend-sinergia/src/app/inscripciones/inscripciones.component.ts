@@ -45,9 +45,21 @@ export class InscripcionesComponent {
   }
 
   saveImage() {
-    this.userData.append('us_imagen_pago', this.selectedFile);
-    console.log(this.userData);
-    this.inscripcionesService.createUser(this.userData).subscribe(
+    const formData = new FormData();
+
+    for (const key in this.userData) {
+      if (this.userData.hasOwnProperty(key)) {
+        formData.append(key, this.userData[key]);
+      }
+    }
+  
+    if (this.selectedFile) {
+      formData.append('us_imagen_pago', this.selectedFile);
+    }
+
+    console.log(formData);
+
+    this.inscripcionesService.createUser(formData).subscribe(
       (response) => {
         console.log('Formulario enviado con éxito', response);
       },
@@ -66,6 +78,7 @@ export class InscripcionesComponent {
         this.user = response;
         this.generatedQrUrl = this.getQrCodeUrl(this.user.us_qrcode);
       });
+    localStorage.clear();
   }
 
   getQrCodeUrl(qrCodeUrl: string): string {
