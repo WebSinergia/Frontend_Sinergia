@@ -14,12 +14,12 @@ export class InscripcionesComponent {
   zonas: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   qrImageUrl: string = '';
   generatedQrUrl: string = '';
-  user: any;
+  user: any = { us_nombres: "", us_apellidos: "", us_zone: "", us_dni: ""};
   selectedFileName: string | null = '';
   selectedFile: File | null = null;
 
   userData: any;
-  imageData: any;
+  imageData: any = { name: "", celular: "", modalidad: "" };  
 
   constructor(
     private inscripcionesService: InscripcionesService,
@@ -57,17 +57,15 @@ export class InscripcionesComponent {
       formData.append('us_imagen_pago', this.selectedFile);
     }
 
-    console.log(formData);
-
     this.inscripcionesService.createUser(formData).subscribe(
       (response) => {
         console.log('Formulario enviado con éxito', response);
+        this.getNewUserData();
       },
       (error) => {
         console.error('Error al enviar el formulario', error);
       }
     );
-    this.getNewUserData();
   }
 
   getNewUserData(): void {
@@ -78,7 +76,6 @@ export class InscripcionesComponent {
         this.user = response;
         this.generatedQrUrl = this.getQrCodeUrl(this.user.us_qrcode);
       });
-    localStorage.clear();
   }
 
   getQrCodeUrl(qrCodeUrl: string): string {
@@ -87,6 +84,7 @@ export class InscripcionesComponent {
   }
 
   getImage(selectedZone: string) {
+    console.log('selectedZone');
     const zoneNumber = +selectedZone;
     this.inscripcionesService.getImageByZone(zoneNumber).subscribe(
       (response: any) => {
