@@ -31,52 +31,108 @@
     </div>
   </div>
 
-  <div class="payment-container">
-    <h2 class="heading-title">Checkout</h2>
-    <div class="image-container">
-      <img class="qr-image" [src]="qrImageUrl" alt="qr-image" />
-      <div class="text-information">
-        <h4>Modalidad: {{ this.imageData.modalidad }}</h4>
-        <h6>Celular: {{ this.imageData.celular }}</h6>
-        <h6>Nombre: {{ this.imageData.name }}</h6>
+  <!-- #####---- STEP 2 SECTION ----##### -->
+  <!-- CHECKOUT SECTION -->
+  <div class="checkout-section">
+    <div class="checkout-title">Checkout</div>
+    <div class="checkout-content">
+      <div class="checkout-box">
+        <div class="checkout-image">
+          <div class="inner-image">
+            <img class="qr-image" [src]="qrImageUrl" alt="qr-image" />
+          </div>
+        </div>
+      </div>
+      <div class="checkout-info">
+        <div class="info-title">Número de Yape/Plin</div>
+        <div class="info-details">
+          <div class="info-text">
+            <div class="number">{{ this.imageData.celular }}</div>
+            <div class="name">{{ this.imageData.name }}</div>
+          </div>
+          <div class="info-icon">
+            <img src="/assets/copy.png" alt="copy" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="payment-container" style="margin-bottom: 1rem">
-    <h2 class="heading-title">Confirmacion de Pago</h2>
-    <div class="image-container">
-      <div class="image-attach" (click)="fileInput.click()">
-        <p class="p-form">{{ selectedFileName }}</p>
-        <input
-          type="file"
-          #fileInput
-          (change)="onFileSelected($event)"
-          style="display: none;"
-        />
+  <!-- DETAILS & PAYMENT SECTION -->
+  <div class="details-section" style="margin-top: 3rem;">
+    <div class="details-card">
+      <div class="details-title">Detalles</div>
+      <div class="details-item">
+        <img src="/assets/calendar.png" alt="calendar" />
+        <div class="details-text">
+          <div class="details-label">Fecha:</div>
+          <div class="details-value">
+            Viernes 6 y Sábado 7 de Setiembre, 2024
+          </div>
+        </div>
       </div>
-      <p class="p-form">Haz click para en el recuadro <br> para adjuntar la imagen tu pago</p>
-      <button (click)="saveImage()">Enviar Imagen</button>
+      <div class="details-item">
+        <img src="/assets/time-circle.png" alt="calendar" />
+        <div class="details-text">
+          <div class="details-label">Horarios:</div>
+          <div class="details-value">Viernes: 7:00 PM y Sábado: 4:00 PM</div>
+        </div>
+      </div>
+      <div class="details-item">
+        <img src="/assets/money-circle.png" alt="calendar" />
+        <div class="details-text">
+          <div class="details-label">Precio:</div>
+          <div class="details-value">S/ 8.00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-card">
+      <div class="payment-details">
+        <div class="payment-title">Constancia de pago</div>
+        <div class="upload-box">
+          <div class="upload-content" (click)="fileInput.click()">
+            <img src="/assets/upload.png" alt="calendar" />
+            <div class="upload-text">
+              Adjuntar archivo
+              <input
+                type="file"
+                #fileInput
+                (change)="onFileSelected($event)"
+                style="display: none"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="file-info">jpg, png o pdf de hasta 5 MB.</div>
+      </div>
+      <div class="submit-button">
+        <button class="submit-text" (click)="saveImage()">Enviar</button>
+      </div>
     </div>
   </div>
 
-
+  <!-- #####---- STEP 3 SECTION ----##### -->
   <div class="payment-container" style="margin-bottom: 1rem">
     <div class="image-container">
       <ng-container *ngIf="generatedQrUrl; else noQrMessage">
         <img class="qr-image" [src]="generatedQrUrl" alt="qr-image" />
       </ng-container>
       <ng-template #noQrMessage>
-        <h5 class="no-qr-message" style="font-size:16px">Debes pagar la cuota para acceder a tu QR</h5>
+        <h5 class="no-qr-message" style="font-size: 16px">
+          Debes pagar la cuota para acceder a tu QR
+        </h5>
       </ng-template>
       <div class="text-information">
-        <h6>Nombre: {{ this.user.us_nombres + ' ' + this.user.us_apellidos}}</h6>
+        <h6>
+          Nombre: {{ this.user.us_nombres + " " + this.user.us_apellidos }}
+        </h6>
         <h6>Zona: {{ this.user.us_zone }}</h6>
         <h6>DNI: {{ this.user.us_dni }}</h6>
       </div>
     </div>
   </div>
-  
+
   <!-- footer section -->
   <footer class="footer">
     <div class="footer__column">
@@ -112,9 +168,7 @@
               <p class="footer__text ui text size-texts">Speakers</p>
             </a>
             <a href="#">
-              <p class="footer__text ui text size-texts">
-                Consultar QR
-              </p>
+              <p class="footer__text ui text size-texts">Consultar QR</p>
             </a>
             <a
               href="Inscripción"
@@ -122,9 +176,7 @@
               rel="noreferrer"
               class="synergy-link-link"
             >
-              <p class="footer__text ui text size-texts">
-                Inscripción
-              </p>
+              <p class="footer__text ui text size-texts">Inscripción</p>
             </a>
             <a
               href="Preguntas"

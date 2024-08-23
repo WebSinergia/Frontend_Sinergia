@@ -35,118 +35,326 @@
   background-color: var(--black);
 }
 
-.payment-container {
-  display: flex;
+.checkout-section {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
+  gap: 44px;
 }
 
-.heading-title {
-  color: var(--text);
-  font-family: "Poppins", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+.checkout-title {
+  align-self: stretch;
   text-align: center;
-  margin-bottom: 1rem;
+  color: white;
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 32px;
+  word-wrap: break-word;
 }
 
-.image-container {
-  color: var(--white);
-  background-color: var(--background);
-  border-radius: var(--radius-xs);
-  padding: 1rem;
+.checkout-content {
+  align-self: stretch;
+  height: 446px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  width: auto;
-  max-width: 80%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 24px;
+}
+
+.checkout-box {
+  width: 328px;
+  height: 300px;
+  padding: 24px;
+  background: #353535;
+  border-radius: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.checkout-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inner-image {
+  left: 8px;
+  top: 8px;
+  background: #dadcdf;
 }
 
 .qr-image {
-  border-radius: var(--radius-xs);
-  width: 328px;
-  height: 300px;
-  margin-bottom: 0.5rem;
-}
-
-.text-information {
-  border-radius: var(--radius-xs);
-  padding: 1rem;
-  background-color: #2c2c2c;
-  text-align: center;
   width: 100%;
+  height: 100%;
 }
 
-.text-information h4 {
+.checkout-info {
+  width: 328px;
+  height: 122px;
+  padding: 16px;
+  background: #353535;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.info-title {
+  align-self: stretch;
+  color: white;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.info-details {
+  align-self: stretch;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.info-text {
+  flex: 1 1 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.number {
+  align-self: stretch;
+  color: white;
   font-size: 18px;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
 }
 
-.text-information h6 {
-  font-size: 15px;
+.name {
+  align-self: stretch;
+  color: #dadcdf;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
 }
 
-.text-information h4, h6 {
-  margin: 0.2rem;
+.info-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
 }
 
-.image-attach {
+.icon-inner {
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  background: white;
+}
+
+/* ------- DETAILS & PAYMENT SECTION -------- */
+.details-section {
   width: 100%;
-  max-width: 340px;
-  height: 150px;
-  margin-top: 0.5rem;
-  border: 2px dashed #ffffff;
-  border-radius: var(--radius-xs);
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.details-card,
+.payment-card {
+  width: 328px;
+  padding: 24px;
+  background: #353535;
+  border-radius: 24px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.details-title {
+  align-self: stretch;
+  color: white;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.details-item {
+  align-self: stretch;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.details-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background: white;
+}
+
+.details-text {
+  flex: 1 1 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.details-label {
+  color: white;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
+}
+
+.details-value {
+  color: white;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
+}
+
+.payment-details {
+  align-self: stretch;
+  height: 126px;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.payment-title {
+  color: white;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.upload-box {
+  align-self: stretch;
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: 1.2px white dotted;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  gap: 8px;
 }
 
-.image-attach p {
-  font-size: 16px;
-  color: var(--white);
-  padding: 1rem 0.5rem;
+.upload-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
 }
 
-.image-attach:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.upload-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background: white;
+  @media (max-width: 800px){
+    width: 20px;
+    height: 20px;
+  }
 }
 
-.p-form {
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  margin: 1rem;
+.upload-text {
+  color: white;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
+  transition: all 0.5s ease;
 }
 
-button {
-  background-color: var(--primary-color);
-  border-radius: var(--radius-xs);
-  color: var(--white);
+.upload-text:hover {
+  font-size: 14px;
+}
+
+.file-info {
+  color: #dadcdf;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
-  padding: 1rem 0.5;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
 }
 
-button:hover {
-  background-color: var(--primary-color-dark);
+.submit-button {
+  align-self: stretch;
+  padding: 16px 24px;
+  border-radius: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: rgb(142, 76, 177);
+  background: linear-gradient(
+    160deg,
+    rgba(142, 76, 177, 1) 10%,
+    rgba(79, 46, 151, 1) 33%,
+    rgba(35, 68, 149, 1) 72%,
+    rgba(46, 103, 155, 1) 83%
+  );
+  background-size: 200% 200%;
+  transition: background-position 0.6s ease;
 }
 
-.no-qr-message {
+.submit-button:hover {
+  background-position: 100% 0;
+}
+
+.submit-text {
+  color: white;
   font-size: 16px;
-  color: var(--white);
-  text-align: center;
-  margin: 1rem 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 16px;
+  word-wrap: break-word;
 }
-
 
 /* ------- UI CLASS -------- */
 .ui.input.round {
@@ -215,7 +423,7 @@ button:hover {
 /*------ TEXT CSS ------*/
 .ui.text {
   color: var(--text);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /*------ CSS------*/
@@ -256,7 +464,7 @@ button:hover {
 
 .ui.heading {
   color: var(--text);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /*------ CONTAINER CSS ------*/
@@ -389,14 +597,10 @@ select {
 }
 
 button {
-  background-color: #007bff;
+  /*background-color: #007bff;*/
   color: white;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   border: none;
   cursor: pointer;
-  border-radius: 0.5rem;
-  padding: 0.6rem;
-  margin-left: 1rem;
 }
 
 button:disabled {
@@ -412,7 +616,7 @@ button:disabled {
 .footer {
   height: 206px;
   display: flex;
-  background-image: url('../../assets/img_footer.png');
+  background-image: url("../../assets/img_footer.png");
   background-size: cover;
   background-repeat: no-repeat;
   @media only screen and (max-width: 1050px) {
