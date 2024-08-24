@@ -97,7 +97,7 @@
             <div class="upload-content" (click)="fileInput.click()">
               <img src="/assets/upload.svg" alt="calendar" />
               <div class="upload-text">
-                Adjuntar archivo
+                {{ selectedFileName || 'Adjuntar archivo' }}
                 <input
                   type="file"
                   #fileInput
@@ -146,7 +146,7 @@
             <img class="qr-image" [src]="generatedQrUrl" alt="qr-image" />
           </ng-container>
           <ng-template #noQrMessage>
-            <h5 class="no-qr-message" style="font-size: 16px">
+            <h5 class="no-qr-message">
               Debes pagar la cuota para acceder a tu QR
             </h5>
           </ng-template>

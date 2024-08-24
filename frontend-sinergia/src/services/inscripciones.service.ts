@@ -12,7 +12,8 @@ import { UserCreate, UserGet } from '../models/user';
   providedIn: 'root',
 })
 export class InscripcionesService {
-  basePath = 'http://127.0.0.1:8000/conferencia/user';
+  //basePath = 'http://127.0.0.1:8000/conferencia/user';
+  basePath = 'https://backend-sinergia.onrender.com/conferencia/user';
 
   httpOptions = {
     headers: new HttpHeaders({

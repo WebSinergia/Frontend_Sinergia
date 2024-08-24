@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InscripcionesService } from '../../services/inscripciones.service';
-import { SharedDataService } from '../../services/shared-data.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +15,6 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private inscripcionesService: InscripcionesService,
-    private sharedDataService: SharedDataService
   ) {}
 
   getNewUserData(us_dni: string): void {

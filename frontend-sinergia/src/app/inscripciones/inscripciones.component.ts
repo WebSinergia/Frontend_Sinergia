@@ -13,20 +13,20 @@ export class InscripcionesComponent {
   zonas: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   qrImageUrl: string = '';
   generatedQrUrl: string = '';
-  user: any = { us_nombres: "", us_apellidos: "", us_zone: "", us_dni: ""};
+  user: any = { us_nombres: '', us_apellidos: '', us_zone: '', us_dni: '' };
   selectedFileName: string | null = '';
   selectedFile: File | null = null;
 
   userData: any;
-  imageData: any = { name: "", celular: "", modalidad: "" };
-  
+  imageData: any = { name: '', celular: '', modalidad: '' };
+
   currentStep: string = '';
 
   constructor(
     private inscripcionesService: InscripcionesService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {
     this.imageForm = this.fb.group({
       image: [null, Validators.required],
@@ -35,10 +35,10 @@ export class InscripcionesComponent {
 
   ngOnInit() {
     this.getData();
-    this.route.firstChild?.url.subscribe(urlSegment => {
+    this.route.firstChild?.url.subscribe((urlSegment) => {
       if (urlSegment.length) {
         this.currentStep = urlSegment[0].path;
-        console.log("Current Step:",this.currentStep);
+        console.log('Current Step:', this.currentStep);
         this.handleStep(this.currentStep);
       }
     });
@@ -85,28 +85,26 @@ export class InscripcionesComponent {
 
   saveImage() {
     const formData = new FormData();
-
     for (const key in this.userData) {
       if (this.userData.hasOwnProperty(key)) {
         formData.append(key, this.userData[key]);
       }
     }
-  
+
     if (this.selectedFile) {
       formData.append('us_imagen_pago', this.selectedFile);
+      this.inscripcionesService.createUser(formData).subscribe(
+        (response) => {
+          console.log('Formulario enviado con éxito', response);
+          this.getNewUserData();
+          this.handleStep('step3');
+          this.navigateToStep('step3');
+        },
+        (error) => {
+          console.error('Error al enviar el formulario', error);
+        }
+      );
     }
-
-    this.inscripcionesService.createUser(formData).subscribe(
-      (response) => {
-        console.log('Formulario enviado con éxito', response);
-        this.getNewUserData();
-        this.handleStep('step3');
-        this.navigateToStep('step3');
-      },
-      (error) => {
-        console.error('Error al enviar el formulario', error);
-      }
-    );
   }
 
   getNewUserData(): void {
