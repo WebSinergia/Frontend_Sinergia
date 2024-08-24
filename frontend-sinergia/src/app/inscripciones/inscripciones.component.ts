@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InscripcionesService } from '../../services/inscripciones.service';
-import { Router } from '@angular/router';
-import { SharedDataService } from '../../services/shared-data.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-inscripciones',
@@ -19,11 +18,15 @@ export class InscripcionesComponent {
   selectedFile: File | null = null;
 
   userData: any;
-  imageData: any = { name: "", celular: "", modalidad: "" };  
+  imageData: any = { name: "", celular: "", modalidad: "" };
+
+  currentStep: string = '';
 
   constructor(
     private inscripcionesService: InscripcionesService,
     private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.imageForm = this.fb.group({
       image: [null, Validators.required],
@@ -32,6 +35,39 @@ export class InscripcionesComponent {
 
   ngOnInit() {
     this.getData();
+    this.route.firstChild?.url.subscribe(urlSegment => {
+      if (urlSegment.length) {
+        this.currentStep = urlSegment[0].path;
+        console.log("Current Step:",this.currentStep);
+        this.handleStep(this.currentStep);
+      }
+    });
+  }
+
+  handleStep(step: string) {
+    switch (step) {
+      case 'step2':
+        this.loadStep2();
+        break;
+      case 'step3':
+        this.loadStep3();
+        break;
+      default:
+        this.loadStep2();
+        break;
+    }
+  }
+
+  loadStep2() {
+    console.log('Cargando paso 2');
+  }
+
+  loadStep3() {
+    console.log('Cargando paso 3');
+  }
+
+  navigateToStep(step: string) {
+    this.router.navigate([`/inscriptions/${step}`]);
   }
 
   getData() {
@@ -46,21 +82,20 @@ export class InscripcionesComponent {
 
   saveImage() {
     const formData = new FormData();
-
     for (const key in this.userData) {
       if (this.userData.hasOwnProperty(key)) {
         formData.append(key, this.userData[key]);
       }
     }
-  
     if (this.selectedFile) {
       formData.append('us_imagen_pago', this.selectedFile);
     }
-
     this.inscripcionesService.createUser(formData).subscribe(
       (response) => {
         console.log('Formulario enviado con éxito', response);
         this.getNewUserData();
+        this.handleStep('step3');
+        this.navigateToStep('step3');
       },
       (error) => {
         console.error('Error al enviar el formulario', error);
