@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { InscripcionesComponent } from './inscripciones.component';
 
@@ -18,21 +18,24 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { storageDataGuard } from '../../guards/storage-data.guard';
 
 const inscriptionsRoutes: Route[] = [
-    {
-      path: '',
-      canActivate: [storageDataGuard],
-      component: InscripcionesComponent
-    }
-  ];
+  {
+    path: '',
+    canActivate: [storageDataGuard],
+    component: InscripcionesComponent,
+    children: [
+      { path: '', redirectTo: 'step2', pathMatch: 'full' },
+      { path: 'step2', component: InscripcionesComponent },
+      { path: 'step3', component: InscripcionesComponent },
+    ],
+  },
+];
 
 @NgModule({
-  declarations: [
-    InscripcionesComponent,
-  ],
+  declarations: [InscripcionesComponent],
   imports: [
     RouterModule.forChild(inscriptionsRoutes),
     RouterModule,
@@ -54,5 +57,4 @@ const inscriptionsRoutes: Route[] = [
     ReactiveFormsModule,
   ],
 })
-
-export class InscripcionesModule { }
+export class InscripcionesModule {}

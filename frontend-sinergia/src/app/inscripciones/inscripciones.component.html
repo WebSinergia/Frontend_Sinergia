@@ -35,81 +35,83 @@
 
   <!-- #####---- STEP 2 SECTION ----##### -->
   <!-- CHECKOUT SECTION -->
-  <div class="checkout-section">
-    <div class="checkout-title">Checkout</div>
-    <div class="checkout-content">
-      <div class="checkout-box">
-        <div class="checkout-image">
-          <div class="inner-image">
-            <img class="qr-image" [src]="qrImageUrl" alt="qr-image" />
-          </div>
-        </div>
-      </div>
-      <div class="checkout-info">
-        <div class="info-title">Número de Yape/Plin</div>
-        <div class="info-details">
-          <div class="info-text">
-            <div class="number">{{ this.imageData.celular }}</div>
-            <div class="name">{{ this.imageData.name }}</div>
-          </div>
-          <div class="info-icon">
-            <img src="/assets/copy.svg" alt="copy" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DETAILS & PAYMENT SECTION -->
-  <div class="details-section" style="margin-top: 1rem;">
-    <div class="details-card">
-      <div class="details-title">Detalles</div>
-      <div class="details-item">
-        <img src="/assets/calendar.svg" alt="calendar" />
-        <div class="details-text">
-          <div class="details-label">Fecha:</div>
-          <div class="details-value">
-            Viernes 6 y Sábado 7 de Setiembre, 2024
-          </div>
-        </div>
-      </div>
-      <div class="details-item">
-        <img src="/assets/time-circle.svg" alt="calendar" />
-        <div class="details-text">
-          <div class="details-label">Horarios:</div>
-          <div class="details-value">Viernes: 7:00 PM y Sábado: 4:00 PM</div>
-        </div>
-      </div>
-      <div class="details-item">
-        <img src="/assets/money-circle.svg" alt="calendar" />
-        <div class="details-text">
-          <div class="details-label">Precio:</div>
-          <div class="details-value">S/ 8.00</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="payment-card">
-      <div class="payment-details">
-        <div class="payment-title">Constancia de pago</div>
-        <div class="upload-box">
-          <div class="upload-content" (click)="fileInput.click()">
-            <img src="/assets/upload.svg" alt="calendar" />
-            <div class="upload-text">
-              Adjuntar archivo
-              <input
-                type="file"
-                #fileInput
-                (change)="onFileSelected($event)"
-                style="display: none"
-              />
+  <div *ngIf="currentStep === 'step2'">
+    <div class="checkout-section">
+      <div class="checkout-title">Checkout</div>
+      <div class="checkout-content">
+        <div class="checkout-box">
+          <div class="checkout-image">
+            <div class="inner-image">
+              <img class="qr-image" [src]="qrImageUrl" alt="qr-image" />
             </div>
           </div>
         </div>
-        <div class="file-info">jpg, png o pdf de hasta 5 MB.</div>
+        <div class="checkout-info">
+          <div class="info-title">Número de Yape/Plin</div>
+          <div class="info-details">
+            <div class="info-text">
+              <div class="number">{{ this.imageData.celular }}</div>
+              <div class="name">{{ this.imageData.name }}</div>
+            </div>
+            <div class="info-icon">
+              <img src="/assets/copy.svg" alt="copy" />
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="submit-button">
-        <button class="submit-text" (click)="saveImage()">Enviar</button>
+    </div>
+
+    <!-- DETAILS & PAYMENT SECTION -->
+    <div class="details-section" style="margin-top: 1rem">
+      <div class="details-card">
+        <div class="details-title">Detalles</div>
+        <div class="details-item">
+          <img src="/assets/calendar.svg" alt="calendar" />
+          <div class="details-text">
+            <div class="details-label">Fecha:</div>
+            <div class="details-value">
+              Viernes 6 y Sábado 7 de Setiembre, 2024
+            </div>
+          </div>
+        </div>
+        <div class="details-item">
+          <img src="/assets/time-circle.svg" alt="calendar" />
+          <div class="details-text">
+            <div class="details-label">Horarios:</div>
+            <div class="details-value">Viernes: 7:00 PM y Sábado: 4:00 PM</div>
+          </div>
+        </div>
+        <div class="details-item">
+          <img src="/assets/money-circle.svg" alt="calendar" />
+          <div class="details-text">
+            <div class="details-label">Precio:</div>
+            <div class="details-value">S/ 8.00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-details">
+          <div class="payment-title">Constancia de pago</div>
+          <div class="upload-box">
+            <div class="upload-content" (click)="fileInput.click()">
+              <img src="/assets/upload.svg" alt="calendar" />
+              <div class="upload-text">
+                Adjuntar archivo
+                <input
+                  type="file"
+                  #fileInput
+                  (change)="onFileSelected($event)"
+                  style="display: none"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="file-info">jpg, png o pdf de hasta 5 MB.</div>
+        </div>
+        <div class="submit-button">
+          <button class="submit-text" (click)="saveImage()">Enviar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -135,31 +137,33 @@
     </div>
   </div>
   -->
-  <div class="ticket-container">
-    <div class="ticket-title">Mi entrada a Sinergía 2024</div>
-    <div class="ticket-content">
-      <div class="ticket-image-container">
-        <ng-container *ngIf="generatedQrUrl; else noQrMessage">
-          <img class="qr-image" [src]="generatedQrUrl" alt="qr-image" />
-        </ng-container>
-        <ng-template #noQrMessage>
-          <h5 class="no-qr-message" style="font-size: 16px">
-            Debes pagar la cuota para acceder a tu QR
-          </h5>
-        </ng-template>
-      </div>
-      <div class="ticket-info">
-        <div class="info-item">
-          <h6 class="id">
-          Nombre: {{ this.user.us_nombres + " " + this.user.us_apellidos }}
-          </h6>
-          <h6 class="id">Zona: {{ this.user.us_zone }}</h6>
-          <h6 class="id">DNI: {{ this.user.us_dni }}</h6>
+  <div *ngIf="currentStep === 'step3'">
+    <div class="ticket-container">
+      <div class="ticket-title">Mi entrada a Sinergía 2024</div>
+      <div class="ticket-content">
+        <div class="ticket-image-container">
+          <ng-container *ngIf="generatedQrUrl; else noQrMessage">
+            <img class="qr-image" [src]="generatedQrUrl" alt="qr-image" />
+          </ng-container>
+          <ng-template #noQrMessage>
+            <h5 class="no-qr-message" style="font-size: 16px">
+              Debes pagar la cuota para acceder a tu QR
+            </h5>
+          </ng-template>
         </div>
-      </div>
-      <div class="ticket-action">
-        <div class="download-ticket">
-          <div class="download-text">Descargar Ticket / QR</div>
+        <div class="ticket-info">
+          <div class="info-item">
+            <h6 class="id">
+              Nombre: {{ this.user.us_nombres + " " + this.user.us_apellidos }}
+            </h6>
+            <h6 class="id">Zona: {{ this.user.us_zone }}</h6>
+            <h6 class="id">DNI: {{ this.user.us_dni }}</h6>
+          </div>
+        </div>
+        <div class="ticket-action">
+          <div class="download-ticket">
+            <div class="download-text">Descargar Ticket / QR</div>
+          </div>
         </div>
       </div>
     </div>
