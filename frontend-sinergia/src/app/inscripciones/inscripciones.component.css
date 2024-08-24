@@ -469,8 +469,7 @@
 
 /*------ CONTAINER CSS ------*/
 .container-xs {
-  max-width: 1300px;
-  width: 100%;
+
 }
 
 /*------- NAVBAR CLASS ------*/
@@ -500,20 +499,14 @@
 }
 
 .navbar {
-  gap: var(--space-xl);
-  background-color: var(--color_white_a700_28);
-  display: flex;
-  width: 50%;
-  justify-content: space-evenly;
+  height: 68px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  display: inline-flex;
+  justify-content: flex-start;
   align-items: center;
-  padding: var(--space-lg);
-  border-radius: var(--radius-lg);
-  @media only screen and (max-width: 1050px) {
-    width: 100%;
-  }
-  @media only screen and (max-width: 550px) {
-    flex-direction: column;
-  }
+  gap: 16px;
 }
 
 .navbar__item {
@@ -521,43 +514,38 @@
   justify-content: center;
 }
 
-.navbar__item h1,
-h2,
-h3 {
-  margin: 0;
+.navbar__item h1,h2,h3 {
+  margin: 0
 }
 
 .navbar__icon--close {
-  height: 44px;
   width: 44px;
-  object-fit: cover;
-  @media only screen and (max-width: 550px) {
-    width: 100%;
-  }
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar__item-1 {
-  background-color: var(--black);
-  border-radius: var(--radius-md);
-  width: 25%;
-  height: 50px;
-  @media only screen and (max-width: 550px) {
-    align-self: stretch;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  height: 100%;
+  padding: 14px 24px;
+  background: black;
+  border-radius: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .navbar__item-2 {
-  background-color: var(--white);
-  border-radius: var(--radius-md);
-  width: 25%;
-  height: 50px;
-  @media only screen and (max-width: 550px) {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  height: 100%;
+  padding: 14px 24px;
+  background: white;
+  border-radius: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .navbar__link--inscribirse {
