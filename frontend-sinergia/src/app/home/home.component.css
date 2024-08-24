@@ -318,14 +318,12 @@
 }
 
 .content__video {
-  width: 100%;
+  width: 50%;
   background-color: var(--background);
   display: flex;
   justify-content: center;
-  padding: 152px 56px;
+  padding: 2rem 0.5rem;
   border-radius: var(--radius-lg);
-  
-
 }
 
 .content__inscription {
@@ -760,10 +758,9 @@
 }
 
 .speaker-profile__image {
-  width: 144px;
-  height: 144px;
+  width: 160px;
+  height: 170px;
   border-radius: 50%;
-
 }
 
 .speaker-profile__details {
