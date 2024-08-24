@@ -183,7 +183,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 44px;}
+  gap: 44px;
+}
 
 .section__stack__title-row {
   align-self: stretch;
@@ -324,6 +325,16 @@
   justify-content: center;
   padding: 2rem 0.5rem;
   border-radius: var(--radius-lg);
+
+  @media only screen and (max-width:800px) {
+    width: 75%;
+    padding: 2rem 1.5rem;
+  }
+
+  @media only screen and (max-width:500px) {
+    width: 100%;
+    padding: 1.2rem 1.2rem;
+  }
 }
 
 .content__inscription {
@@ -749,11 +760,15 @@
   border-radius: 24px;
   display: inline-flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 24px;
   @media only screen and (max-width: 800px) {
+    width: 80%;
     padding: 14px;
+    text-align: center;
+    word-break: normal;
+    word-wrap: break-word;
   }
 }
 
@@ -788,7 +803,7 @@
   height: 100%;
   display: inline-flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 24px;
   @media only screen and (max-width: 800px) {
     flex-direction: column;
@@ -996,8 +1011,9 @@
   font-weight: 600;
   font-style: bold;
 
-  @media only screen and (max-width: 800) {
-    font-size: 28px;
+  @media only screen and (max-width: 800px) {
+    font-size: 26px;
+    word-wrap: break-word;
   }
 }
 
