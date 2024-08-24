@@ -149,11 +149,13 @@
         </ng-template>
       </div>
       <div class="ticket-info">
-        <h6>
+        <div class="info-item">
+          <h6 class="id">
           Nombre: {{ this.user.us_nombres + " " + this.user.us_apellidos }}
-        </h6>
-        <h6>Zona: {{ this.user.us_zone }}</h6>
-        <h6>DNI: {{ this.user.us_dni }}</h6>
+          </h6>
+          <h6 class="id">Zona: {{ this.user.us_zone }}</h6>
+          <h6 class="id">DNI: {{ this.user.us_dni }}</h6>
+        </div>
       </div>
       <div class="ticket-action">
         <div class="download-ticket">
