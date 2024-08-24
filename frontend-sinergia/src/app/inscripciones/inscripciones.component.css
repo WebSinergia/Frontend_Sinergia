@@ -181,6 +181,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
+  @media (max-width: 800px){
+    flex-direction: column;
+  }
+  
 }
 
 .details-card,
