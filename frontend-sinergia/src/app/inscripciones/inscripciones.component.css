@@ -353,10 +353,161 @@
   background-position: 100% 0;
 }
 
+/* ------- STEP 3 -------- */
+
 .submit-text {
   color: white;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 16px;
+  word-wrap: break-word;
+} 
+
+.ticket-container {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 44px;
+  padding: 24px;
+}
+
+.ticket-title {
+  align-self: stretch;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 32px;
+  word-wrap: break-word;
+}
+
+.ticket-content {
+  align-self: stretch;
+  height: 518px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+}
+
+.ticket-image-container {
+  width: 328px;
+  height: 300px;
+  padding: 24px;
+  background: #353535;
+  border-radius: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.ticket-image {
+  width: 96px;
+  height: 96px;
+  position: relative;
+}
+
+.image-placeholder {
+  width: 80px;
+  height: 80px;
+  left: 8px;
+  top: 8px;
+  position: absolute;
+  background: #DADCDF;
+}
+
+.ticket-info {
+  width: 328px;
+  height: 122px;
+  padding: 16px;
+  background: #353535;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ticket-name {
+  align-self: stretch;
+  color: white;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.ticket-details {
+  align-self: stretch;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.ticket-id {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.ticket-number {
+  color: white;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.10px;
+  word-wrap: break-word;
+}
+
+.ticket-zone {
+  color: #DADCDF;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.10px;
+  word-wrap: break-word;
+}
+
+.ticket-action {
+  width: 328px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.download-ticket {
+  align-self: stretch;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background-image: url('https://via.placeholder.com/328x48');
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.download-text {
+  color: white;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   line-height: 16px;
   word-wrap: break-word;

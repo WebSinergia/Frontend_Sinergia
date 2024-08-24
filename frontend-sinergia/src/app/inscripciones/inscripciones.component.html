@@ -61,7 +61,7 @@
   </div>
 
   <!-- DETAILS & PAYMENT SECTION -->
-  <div class="details-section" style="margin-top: 3rem;">
+  <div class="details-section" style="margin-top: 1rem;">
     <div class="details-card">
       <div class="details-title">Detalles</div>
       <div class="details-item">
@@ -114,7 +114,7 @@
     </div>
   </div>
 
-  <!-- #####---- STEP 3 SECTION ----##### -->
+  <!-- #####---- STEP 3 SECTION ----##### 
   <div class="payment-container" style="margin-bottom: 1rem">
     <div class="image-container">
       <ng-container *ngIf="generatedQrUrl; else noQrMessage">
@@ -131,6 +131,34 @@
         </h6>
         <h6>Zona: {{ this.user.us_zone }}</h6>
         <h6>DNI: {{ this.user.us_dni }}</h6>
+      </div>
+    </div>
+  </div>
+  -->
+  <div class="ticket-container">
+    <div class="ticket-title">Mi entrada a Sinergía 2024</div>
+    <div class="ticket-content">
+      <div class="ticket-image-container">
+        <ng-container *ngIf="generatedQrUrl; else noQrMessage">
+          <img class="qr-image" [src]="generatedQrUrl" alt="qr-image" />
+        </ng-container>
+        <ng-template #noQrMessage>
+          <h5 class="no-qr-message" style="font-size: 16px">
+            Debes pagar la cuota para acceder a tu QR
+          </h5>
+        </ng-template>
+      </div>
+      <div class="ticket-info">
+        <h6>
+          Nombre: {{ this.user.us_nombres + " " + this.user.us_apellidos }}
+        </h6>
+        <h6>Zona: {{ this.user.us_zone }}</h6>
+        <h6>DNI: {{ this.user.us_dni }}</h6>
+      </div>
+      <div class="ticket-action">
+        <div class="download-ticket">
+          <div class="download-text">Descargar Ticket / QR</div>
+        </div>
       </div>
     </div>
   </div>
