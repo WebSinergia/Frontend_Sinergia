@@ -59,7 +59,8 @@ input:where(:not([type])),
 [multiple],
 textarea,
 select,
-button {
+button,
+button:disabled {
   appearance: none;
   background-color: transparent;
   border-color: unset;

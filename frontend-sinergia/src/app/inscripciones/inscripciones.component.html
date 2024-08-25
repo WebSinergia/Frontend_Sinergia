@@ -110,7 +110,9 @@
           <div class="file-info">jpg, png o pdf de hasta 5 MB.</div>
         </div>
         <div class="submit-button">
-          <button class="submit-text" (click)="saveImage()">Enviar</button>
+          <button class="submit-text" 
+          [disabled]="isSubmitting"
+          (click)="saveImage()">Enviar</button>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { InscripcionesService } from '../../services/inscripciones.service';
 })
 export class HomeComponent {
   generatedQrUrl: string = '';
+  isSubmitting: boolean = false;
   user: any;
 
   constructor(
@@ -37,21 +38,11 @@ export class HomeComponent {
     us_telefono: string,
     us_zone: string
   ): void {
+    this.isSubmitting = true;
+    console.log('click');
     const userData = { us_nombres, us_apellidos, us_dni, us_telefono, us_zone };
     localStorage.setItem('userData', JSON.stringify(userData));
     this.router.navigate(['/inscriptions']);
-
-    // this.inscripcionesService.createUser(userData).subscribe(
-    //   (response) => {
-    //     console.log('Formulario enviado con éxito', response);
-    //     localStorage.setItem('userData', JSON.stringify(userData));
-    //     // this.getNewUserData(us_dni);
-    //     // this.sharedDataService.setUserData(userData);
-    //     this.router.navigate(['/inscriptions']);
-    //   },
-    //   (error) => {
-    //     console.error('Error al enviar el formulario', error);
-    //   }
-    // );
+    this.isSubmitting = false;
   }
 }

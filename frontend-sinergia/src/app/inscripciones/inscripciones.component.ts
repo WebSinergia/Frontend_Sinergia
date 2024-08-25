@@ -20,6 +20,8 @@ export class InscripcionesComponent {
   userData: any;
   imageData: any = { name: '', celular: '', modalidad: '' };
 
+  isSubmitting: boolean = false;
+
   currentStep: string = '';
 
   constructor(
@@ -84,6 +86,8 @@ export class InscripcionesComponent {
   }
 
   saveImage() {
+    this.isSubmitting = true;
+    console.log('click');
     const formData = new FormData();
     for (const key in this.userData) {
       if (this.userData.hasOwnProperty(key)) {
@@ -93,17 +97,20 @@ export class InscripcionesComponent {
 
     if (this.selectedFile) {
       formData.append('us_imagen_pago', this.selectedFile);
-      this.inscripcionesService.createUser(formData).subscribe(
-        (response) => {
-          console.log('Formulario enviado con éxito', response);
-          this.getNewUserData();
-          this.handleStep('step3');
-          this.navigateToStep('step3');
-        },
-        (error) => {
-          console.error('Error al enviar el formulario', error);
-        }
-      );
+      // this.inscripcionesService.createUser(formData).subscribe(
+      //   (response) => {
+      //     console.log('Formulario enviado con éxito', response);
+      //     this.getNewUserData();
+      //     this.handleStep('step3');
+      //     this.navigateToStep('step3');
+      //     this.isSubmitting = false;
+      //     localStorage.clear();
+      //   },
+      //   (error) => {
+      //     console.error('Error al enviar el formulario', error);
+      //     this.isSubmitting = false;
+      //   }
+      // );
     }
   }
 

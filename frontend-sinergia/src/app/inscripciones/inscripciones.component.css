@@ -106,7 +106,6 @@
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
-
 }
 
 .info-title {
@@ -183,7 +182,7 @@
   align-items: flex-start;
   gap: 24px;
 
-  @media only screen and (max-width:800px) {
+  @media only screen and (max-width: 800px) {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -204,12 +203,12 @@
   gap: 16px;
   margin-top: 1rem;
 
-  @media only screen and (max-width:800px) {
+  @media only screen and (max-width: 800px) {
     width: 90%;
     height: 100%;
   }
 
-  @media only screen and (max-width:450px) {
+  @media only screen and (max-width: 450px) {
     width: 85%;
     height: 100%;
   }
@@ -318,7 +317,7 @@
   height: 20px;
   position: relative;
   background: white;
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     width: 20px;
     height: 20px;
   }
@@ -349,7 +348,8 @@
   word-wrap: break-word;
 }
 
-.submit-button {
+.submit-button,
+.submit-button:disabled {
   align-self: stretch;
   padding: 16px 24px;
   margin-top: 1rem;
@@ -370,20 +370,24 @@
   transition: background-position 0.6s ease;
 }
 
-.submit-button:hover {
-  background-position: 100% 0;
-}
-
-/* ------- STEP 3 -------- */
-
-.submit-text {
+.submit-text,
+.submit-text:disabled {
+  background-color: transparent !important;
+  padding: 0;
+  margin-left: 0;
   color: white;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 16px;
   word-wrap: break-word;
-} 
+}
+
+.submit-button:hover {
+  background-position: 100% 0;
+}
+
+/* ------- STEP 3 -------- */
 
 .ticket-container {
   width: 100%;
@@ -401,7 +405,7 @@
   text-align: center;
   color: white;
   font-size: 32px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 32px;
   word-wrap: break-word;
@@ -441,7 +445,7 @@
   left: 8px;
   top: 8px;
   position: absolute;
-  background: #DADCDF;
+  background: #dadcdf;
 }
 
 .ticket-info {
@@ -453,7 +457,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  @media only screen and (max-width:800px){
+  @media only screen and (max-width: 800px) {
     width: 90%;
     height: auto;
   }
@@ -476,9 +480,9 @@
 .id {
   color: white;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
-  letter-spacing: 0.10px;
+  letter-spacing: 0.1px;
   word-wrap: break-word;
   align-self: stretch;
 }
@@ -487,7 +491,7 @@
   align-self: stretch;
   color: white;
   font-size: 24px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 24px;
   word-wrap: break-word;
@@ -513,20 +517,20 @@
 .ticket-number {
   color: white;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 24px;
-  letter-spacing: 0.10px;
+  letter-spacing: 0.1px;
   word-wrap: break-word;
 }
 
 .ticket-zone {
-  color: #DADCDF;
+  color: #dadcdf;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   line-height: 22px;
-  letter-spacing: 0.10px;
+  letter-spacing: 0.1px;
   word-wrap: break-word;
 }
 
@@ -542,22 +546,28 @@
 
 .download-ticket {
   align-self: stretch;
-    padding: 16px 24px;
-    border-radius: 16px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    background: rgb(142, 76, 177);
-    background: linear-gradient(160deg, rgba(142, 76, 177, 1) 10%, rgba(79, 46, 151, 1) 33%, rgba(35, 68, 149, 1) 72%, rgba(46, 103, 155, 1) 83%);
-    background-size: 200% 200%;
-    transition: background-position 0.6s ease;
+  padding: 16px 24px;
+  border-radius: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: rgb(142, 76, 177);
+  background: linear-gradient(
+    160deg,
+    rgba(142, 76, 177, 1) 10%,
+    rgba(79, 46, 151, 1) 33%,
+    rgba(35, 68, 149, 1) 72%,
+    rgba(46, 103, 155, 1) 83%
+  );
+  background-size: 200% 200%;
+  transition: background-position 0.6s ease;
 }
 
 .download-text {
   color: white;
   font-size: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 16px;
   word-wrap: break-word;
@@ -716,8 +726,10 @@
   justify-content: center;
 }
 
-.navbar__item h1,h2,h3 {
-  margin: 0
+.navbar__item h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 .navbar__icon--close {
