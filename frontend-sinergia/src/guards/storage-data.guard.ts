@@ -11,5 +11,6 @@ export const storageDataGuard: CanActivateFn = (route, state) => {
   } else {
     router.navigate(['/']);
     return false;
+    //return true
   }
 };

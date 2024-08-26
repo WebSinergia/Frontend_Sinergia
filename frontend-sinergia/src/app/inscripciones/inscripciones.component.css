@@ -833,6 +833,7 @@ button:disabled {
   background-repeat: no-repeat;
   @media only screen and (max-width: 1050px) {
     height: auto;
+    margin-top: 3rem;
   }
 }
 

@@ -97,7 +97,7 @@
             <div class="upload-content" (click)="fileInput.click()">
               <img src="/assets/upload.svg" alt="calendar" />
               <div class="upload-text">
-                {{ selectedFileName || 'Adjuntar archivo' }}
+                {{ selectedFileName || "Adjuntar archivo" }}
                 <input
                   type="file"
                   #fileInput
@@ -110,9 +110,13 @@
           <div class="file-info">jpg, png o pdf de hasta 5 MB.</div>
         </div>
         <div class="submit-button">
-          <button class="submit-text" 
-          [disabled]="isSubmitting"
-          (click)="saveImage()">Enviar</button>
+          <button
+            class="submit-text"
+            [disabled]="isSubmitting"
+            (click)="saveImage()"
+          >
+            Enviar
+          </button>
         </div>
       </div>
     </div>
@@ -160,98 +164,101 @@
             </h6>
             <h6 class="id">Zona: {{ this.user.us_zone }}</h6>
             <h6 class="id">DNI: {{ this.user.us_dni }}</h6>
+            <!-- <h6 class="id" style="font-size: 14px">Recuerda guardar o tomar un screenshot de tu código QR. Este será tu entrada virtual para el evento. ¡No lo pierdas!</h6> -->
           </div>
         </div>
         <div class="ticket-action">
-          <div class="download-ticket">
-            <div class="download-text">Descargar Ticket / QR</div>
-          </div>
+          <!-- <div class="download-ticket">
+            <a [href]="generatedQrUrl" download="Sinergia2024_QR.png">
+              <div class="download-text">Descargar Ticket / QR</div>
+            </a>
+          </div> -->
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- footer section -->
-  <footer class="footer">
-    <div class="footer__column">
-      <div class="footer__gradient"></div>
-      <div class="footer-content">
-        <div class="footer__row container-xs">
-          <div class="footer__sections">
-            <img
-              src="/assets/img_close.png"
-              alt="Close Image"
-              class="footer__icon--close"
-            />
-            <a href="Inicio" target="_blank" rel="noreferrer">
-              <p class="footer__text ui text size-texts">Inicio</p>
-            </a>
-            <a
-              href="Sinergía"
-              target="_blank"
-              rel="noreferrer"
-              class="synergy-link-link"
-            >
-              <p class="footer__text ui text size-texts">Sinergía</p>
-            </a>
-            <a href="Talleres" target="_blank" rel="noreferrer">
-              <p class="footer__text ui text size-texts">Talleres</p>
-            </a>
-            <a
-              href="Speakers"
-              target="_blank"
-              rel="noreferrer"
-              class="synergy-link-link"
-            >
-              <p class="footer__text ui text size-texts">Speakers</p>
-            </a>
-            <a href="#">
-              <p class="footer__text ui text size-texts">Consultar QR</p>
-            </a>
-            <a
-              href="Inscripción"
-              target="_blank"
-              rel="noreferrer"
-              class="synergy-link-link"
-            >
-              <p class="footer__text ui text size-texts">Inscripción</p>
-            </a>
-            <a
-              href="Preguntas"
-              target="_blank"
-              rel="noreferrer"
-              class="synergy-link-link"
-            >
-              <p class="footer__text ui text size-texts">Preguntas</p>
-            </a>
+    <!-- footer section -->
+    <footer class="footer">
+      <div class="footer__column">
+        <div class="footer__gradient"></div>
+        <div class="footer-content">
+          <div class="footer__row container-xs">
+            <div class="footer__sections">
+              <img
+                src="/assets/img_close.png"
+                alt="Close Image"
+                class="footer__icon--close"
+              />
+              <a href="Inicio" target="_blank" rel="noreferrer">
+                <p class="footer__text ui text size-texts">Inicio</p>
+              </a>
+              <a
+                href="Sinergía"
+                target="_blank"
+                rel="noreferrer"
+                class="synergy-link-link"
+              >
+                <p class="footer__text ui text size-texts">Sinergía</p>
+              </a>
+              <a href="Talleres" target="_blank" rel="noreferrer">
+                <p class="footer__text ui text size-texts">Talleres</p>
+              </a>
+              <a
+                href="Speakers"
+                target="_blank"
+                rel="noreferrer"
+                class="synergy-link-link"
+              >
+                <p class="footer__text ui text size-texts">Speakers</p>
+              </a>
+              <a href="#">
+                <p class="footer__text ui text size-texts">Consultar QR</p>
+              </a>
+              <a
+                href="Inscripción"
+                target="_blank"
+                rel="noreferrer"
+                class="synergy-link-link"
+              >
+                <p class="footer__text ui text size-texts">Inscripción</p>
+              </a>
+              <a
+                href="Preguntas"
+                target="_blank"
+                rel="noreferrer"
+                class="synergy-link-link"
+              >
+                <p class="footer__text ui text size-texts">Preguntas</p>
+              </a>
+            </div>
+            <div class="footer__social-media">
+              <button
+                class="footer__icon--facebook ui button white_a700_28 size-xs fill round"
+              >
+                <img src="/assets/img_facebook.svg" />
+              </button>
+              <button
+                class="footer__icon--facebook ui button white_a700_28 size-xs fill round"
+              >
+                <img src="/assets/img_trash.svg" />
+              </button>
+              <img
+                src="/assets/img_info.svg"
+                alt="Info Image"
+                class="footer__icon--info"
+              />
+            </div>
           </div>
-          <div class="footer__social-media">
-            <button
-              class="footer__icon--facebook ui button white_a700_28 size-xs fill round"
-            >
-              <img src="/assets/img_facebook.svg" />
-            </button>
-            <button
-              class="footer__icon--facebook ui button white_a700_28 size-xs fill round"
-            >
-              <img src="/assets/img_trash.svg" />
-            </button>
-            <img
-              src="/assets/img_info.svg"
-              alt="Info Image"
-              class="footer__icon--info"
-            />
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__divider"></div>
+          <div class="footer__copyright container-xs">
+            <p class="footer__text ui text size-textxs">
+              Copyright © 2024 Nuevas Generaciones | All Rights Reserved
+            </p>
           </div>
         </div>
       </div>
-      <div class="footer__bottom">
-        <div class="footer__divider"></div>
-        <div class="footer__copyright container-xs">
-          <p class="footer__text ui text size-textxs">
-            Copyright © 2024 Nuevas Generaciones | All Rights Reserved
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </div>
