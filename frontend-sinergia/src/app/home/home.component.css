@@ -984,7 +984,7 @@
   text-align: left;
 }
 
-.ui text.size-body_speaker {
+.ui.text.size-body_speaker {
   letter-spacing: 0.1px;
   font-size: 16px;
   font-weight: 400;
