@@ -436,8 +436,17 @@
                 src="/assets/img_content_blue_gray_100.png"
                 alt="Content Image"
                 class="content__image"
-              /> -->
+                /> -->
               </div>
+               <!-- Aquí agregamos el JavaScript -->
+              <script>
+                document.querySelector('a[href="#inscription"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#inscription').scrollIntoView({
+                behavior: 'smooth'
+                  });
+                });
+              </script>
 
               <!-- social media hashtags section -->
               <!-- <div class="section__hashtags">
