@@ -21,3 +21,11 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+document.querySelector('a[href="#inscription"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.querySelector('#inscription').scrollIntoView({
+      behavior: 'smooth'
+  });
+});
+
