@@ -22,9 +22,9 @@ describe('HomeComponent', () => {
   });
 });
 
-document.querySelector('a[href="#inscription"]').addEventListener('click', function(e) {
+document.querySelector('a[href="#inscribete"]').addEventListener('click', function(e) {
   e.preventDefault();
-  document.querySelector('#inscription').scrollIntoView({
+  document.querySelector('#inscribete').scrollIntoView({
       behavior: 'smooth'
   });
 });
