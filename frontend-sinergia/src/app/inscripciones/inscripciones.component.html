@@ -110,9 +110,7 @@
           <div class="file-info">jpg, png o pdf de hasta 5 MB.</div>
         </div>
         <div class="submit-button" (click)="saveImage()">
-          <button class="submit-text" [disabled]="isSubmitting">
-            Enviar
-          </button>
+          <button class="submit-text" [disabled]="isSubmitting">Enviar</button>
         </div>
       </div>
     </div>
@@ -158,7 +156,15 @@
             <h6 class="id">
               Nombre: {{ this.user.us_nombres + " " + this.user.us_apellidos }}
             </h6>
-            <h6 class="id">Zona: {{ this.user.us_zone }}</h6>
+            <h6 class="id" *ngIf="this.user.us_zone == 15">Zona: CDL</h6>
+            <h6 class="id" *ngIf="this.user.us_zone == 16">Zona: Oquendo</h6>
+            <h6
+              class="id"
+              *ngIf="this.user.us_zone != 15 && this.user.us_zone !== 16"
+            >
+              Zona: {{ this.user.us_zone }}
+            </h6>
+
             <h6 class="id">DNI: {{ this.user.us_dni }}</h6>
             <!-- <h6 class="id" style="font-size: 14px">Recuerda guardar o tomar un screenshot de tu código QR. Este será tu entrada virtual para el evento. ¡No lo pierdas!</h6> -->
           </div>

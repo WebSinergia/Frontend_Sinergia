@@ -87,7 +87,6 @@ export class InscripcionesComponent {
 
   saveImage() {
     this.isSubmitting = true;
-    console.log('click');
     const formData = new FormData();
     for (const key in this.userData) {
       if (this.userData.hasOwnProperty(key)) {
