@@ -5,6 +5,11 @@
   rel="stylesheet"
 />
 
+<div id="splash-screen">
+  <div class="spinner"></div>
+  <p class="loading-text">Cargando...</p>
+</div> 
+
 <div class="inicio">
   <div>
     <div class="row">
@@ -264,3 +269,13 @@
     </footer>
   </div>
 </div>
+<script>
+  window.addEventListener('load', function() {
+    var splashScreen = document.getElementById('splash-screen');
+    splashScreen.style.opacity = '0'; // Suaviza la salida
+
+    setTimeout(function() {
+      splashScreen.style.display = 'none'; // Oculta el splash screen después de la animación
+    }, 500); // Espera a que la transición termine
+  });
+</script>
