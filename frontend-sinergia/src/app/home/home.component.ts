@@ -12,7 +12,6 @@ export class HomeComponent {
   generatedQrUrl: string = '';
   isSubmitting: boolean = false;
   user: any;
-  flag: boolean = false;
 
   constructor(
     private router: Router,
