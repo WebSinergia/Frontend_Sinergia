@@ -21,6 +21,7 @@ export class InscripcionesComponent {
   imageData: any = { name: '', celular: '', modalidad: '' };
 
   isSubmitting: boolean = false;
+  loading: boolean = false;
 
   currentStep: string = '';
 
@@ -86,6 +87,7 @@ export class InscripcionesComponent {
   }
 
   saveImage() {
+    this.loading = true;
     this.isSubmitting = true;
     const formData = new FormData();
     for (const key in this.userData) {
@@ -99,6 +101,7 @@ export class InscripcionesComponent {
       this.inscripcionesService.createUser(formData).subscribe(
         (response) => {
           console.log('Formulario enviado con éxito', response);
+          this.loading = false;
           this.getNewUserData();
           this.handleStep('step3');
           this.navigateToStep('step3');
@@ -108,6 +111,7 @@ export class InscripcionesComponent {
         (error) => {
           console.error('Error al enviar el formulario', error);
           this.isSubmitting = false;
+          this.loading = false;
         }
       );
     }
