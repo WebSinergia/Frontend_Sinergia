@@ -5,9 +5,9 @@
   rel="stylesheet"
 />
 
-<div id="splash-screen">
-  <div class="spinner"></div>
-  <p class="loading-text">Cargando...</p>
+<div id="splash-screen" *ngIf="loading">
+  <div *ngIf="loading" class="spinner"></div>
+  <p *ngIf="loading" class="loading-text">Cargando...</p>
 </div> 
 
 <div class="inicio">
