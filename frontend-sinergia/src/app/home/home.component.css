@@ -58,7 +58,6 @@
   padding-bottom: var(--space-3xl);
   z-index: 1;
   background: radial-gradient(90deg, #66666633, #00000033);
-  position: relative;
   display: flex;
   justify-content: center;
   @media only screen and (max-width: 800) {
@@ -130,7 +129,6 @@
 .opacidadlineal {
   height: 24px;
   margin-top: -24px;
-  position: relative;
   background: linear-gradient(180deg, #00000000, #000000);
 }
 
@@ -220,7 +218,6 @@
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
-    position: relative;
   }
 }
 
@@ -341,7 +338,6 @@
 }
 
 .content__inscription {
-  position: relative;
   align-self: stretch;
 }
 
@@ -452,6 +448,13 @@
   }
 }
 
+#inscribete {
+  z-index: 1; /* Asegúrate de que esté por encima si es necesario */
+  display: block; /* Asegúrate de que esté visible */
+  visibility: visible; /* Evita visibility: hidden; */
+  scroll-margin-top: 150px; /* Ajusta según la altura de la navbar */
+}
+
 .details__list {
   gap: var(--space-xl);
   display: flex;
@@ -481,7 +484,6 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  position: relative;
   cursor: pointer;
   padding: var(--space-2xl);
   border-radius: var(--radius-lg);
@@ -511,7 +513,6 @@
 }
 
 .faq-section__question-row {
-  position: relative;
   align-self: stretch;
   display: flex;
   justify-content: space-between;
@@ -529,7 +530,6 @@
 .faq-section__answer {
   margin-top: 10px;
   z-index: 2;
-  position: relative;
 }
 
 .QYA {
@@ -582,7 +582,6 @@
 .faq-icon {
   width: 24px;
   height: 24px;
-  position: relative;
 }
 
 .faq-answer {
@@ -974,6 +973,7 @@
   font-family: Inter;
   font-size: 12px;
   font-weight: 400;
+  text-align: left;
 }
 
 .ui.text.size-body_body {
@@ -981,19 +981,21 @@
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
-  text-align: center;
+  text-align: left;
 }
 
 .ui.text.size-textxs {
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
+  text-align: left;
 }
 
 .ui.text.size-texts {
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
+  text-align: left;
 }
 
 .ui.text {

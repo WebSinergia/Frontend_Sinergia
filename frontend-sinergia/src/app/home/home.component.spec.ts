@@ -29,3 +29,6 @@ document.querySelector('a[href="#inscribete"]').addEventListener('click', functi
   });
 });
 
+document.getElementById('inscribete').scrollIntoView({ behavior: 'smooth' });
+
+
