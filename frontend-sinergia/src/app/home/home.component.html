@@ -438,16 +438,6 @@
                 class="content__image"
                 /> -->
               </div>
-               <!-- Aquí agregamos el JavaScript -->
-              <script>
-                document.querySelector('a[href="#inscription"]').addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector('#inscription').scrollIntoView({
-                behavior: 'smooth'
-                  });
-                });
-              </script>
-
               <!-- social media hashtags section -->
               <!-- <div class="section__hashtags">
               <h4 class="ui heading size-subtitle">#CONFSINERGIA2024</h4>
@@ -562,23 +552,21 @@
                         alt="Close Image"
                         class="footer__icon--close"
                       />
-                      <a href="Inicio" target="_blank" rel="noreferrer">
+                      <a href="Inicio" rel="noreferrer">
                         <p class="footer__text ui text size-texts">Inicio</p>
                       </a>
                       <a
                         href="Sinergía"
-                        target="_blank"
                         rel="noreferrer"
                         class="synergy-link-link"
                       >
                         <p class="footer__text ui text size-texts">Sinergía</p>
                       </a>
-                      <a href="Talleres" target="_blank" rel="noreferrer">
+                      <a href="Talleres" rel="noreferrer">
                         <p class="footer__text ui text size-texts">Talleres</p>
                       </a>
                       <a
                         href="Speakers"
-                        target="_blank"
                         rel="noreferrer"
                         class="synergy-link-link"
                       >
@@ -593,7 +581,6 @@
                       -->
                       <a
                         href="#inscription"
-                        target="_blank"
                         rel="noreferrer"
                         class="synergy-link-link"
                       >
@@ -603,7 +590,6 @@
                       </a>
                       <a
                         href="Preguntas"
-                        target="_blank"
                         rel="noreferrer"
                         class="synergy-link-link"
                       >
@@ -643,5 +629,14 @@
         </div>
       </div>
     </div>
+     <!-- Aquí agregamos el JavaScript -->
+     <script>
+      document.querySelector('a[href="#inscription"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#inscription').scrollIntoView({
+      behavior: 'smooth'
+        });
+      });
+    </script>
   </body>
 </html>
