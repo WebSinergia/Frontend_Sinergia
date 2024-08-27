@@ -348,13 +348,12 @@
   word-wrap: break-word;
 }
 
-.submit-button,
-.submit-button:disabled {
-  align-self: stretch;
+.submit-button {
+  width: 100%; /* O ajusta según lo necesario */
   padding: 16px 24px;
   margin-top: 1rem;
   border-radius: 16px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -368,19 +367,26 @@
   );
   background-size: 200% 200%;
   transition: background-position 0.6s ease;
+  cursor: pointer; /* Esto hace que el cursor cambie al ícono de mano */
 }
 
 .submit-text,
 .submit-text:disabled {
   background-color: transparent !important;
-  padding: 0;
-  margin-left: 0;
   color: white;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 16px;
   word-wrap: break-word;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer; /* Esto también es importante */
+}
+
+.submit-button:disabled {
+  cursor: not-allowed; /* Indica que está deshabilitado */
 }
 
 .submit-button:hover {
