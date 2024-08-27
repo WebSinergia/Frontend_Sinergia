@@ -4,6 +4,6 @@
     publish = "dist/browser"
 
     [[redirects]]
-    from = "/*"
+    from = "/home"
     to = "/index.html"
     status = "200"
