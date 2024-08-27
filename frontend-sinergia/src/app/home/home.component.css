@@ -984,6 +984,14 @@
   text-align: left;
 }
 
+.ui text.size-body_speaker {
+  letter-spacing: 0.1px;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
 .ui.text.size-textxs {
   font-size: 16px;
   font-weight: 400;
