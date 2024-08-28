@@ -15,7 +15,7 @@
       style="width: 0px; height: 0px; display: none"
     />
   </head>
-  <body>   
+  <body>
     <!-- main container section -->
     <div class="inicio">
       <!-- navigation section -->
@@ -40,7 +40,9 @@
                   workshops section -->
                   <div class="navbar__item navbar__item-2">
                     <a href="#inscribete">
-                      <h2 class="navbar__link--inscribirse ui heading size-headingxs">
+                      <h2
+                        class="navbar__link--inscribirse ui heading size-headingxs"
+                      >
                         Inscribirse
                       </h2>
                     </a>
@@ -78,22 +80,22 @@
                           el lema&nbsp;</span
                         >
                         <span class="section__stack__content-description-span">
-                          ”Todos tenemos algo para dar”</span>, te invitamos a unirte a
-                          un fin de semana épico lleno de inspiración,
-                          aprendizaje y, sobre todo, ¡muchísima energía y
-                          pasión!
+                          ”Todos tenemos algo para dar”</span
+                        >, te invitamos a unirte a un fin de semana épico lleno
+                        de inspiración, aprendizaje y, sobre todo, ¡muchísima
+                        energía y pasión!
                       </p>
                     </div>
                     <div class="section__stack__image-row">
                       <video
-                      src="/assets/video_user.mp4"
-                      alt="User Video"
-                      class="content__video-image"
-                      autoplay
-                      loop
-                      muted
-                      playsinline
-                    ></video>
+                        src="/assets/video_user.mp4"
+                        alt="User Video"
+                        class="content__video-image"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                      ></video>
                     </div>
                   </div>
                 </div>
@@ -185,7 +187,10 @@
                         class="speaker-profile__image"
                       />
                       <div class="speaker-profile__details">
-                        <h4 class="ui heading size-subtitle" style="font-size: 22px;">
+                        <h4
+                          class="ui heading size-subtitle"
+                          style="font-size: 22px"
+                        >
                           Rev. Adrián Quijandría
                         </h4>
                         <p class="ui text size-body_speaker">
@@ -216,9 +221,7 @@
                       />
                       <div class="speaker-profile__details">
                         <h4 class="ui heading size-subtitle">Kari Evaristo</h4>
-                        <p
-                          class="ui text size-body_speaker"
-                        >
+                        <p class="ui text size-body_speaker">
                           Líder juvenil y conferencista
                         </p>
                       </div>
@@ -364,16 +367,9 @@
                           </select>
                         </div>
                       </div>
+                      <!-- (click)=" onSubmit( firstname.value, lastname.value,
+                      dni.value, celular.value, zone.value )" -->
                       <button
-                        (click)="
-                          onSubmit(
-                            firstname.value,
-                            lastname.value,
-                            dni.value,
-                            celular.value,
-                            zone.value
-                          )
-                        "
                         class="inscription__button ui button size-sm"
                         [disabled]="isSubmitting"
                       >
