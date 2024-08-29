@@ -1,4 +1,4 @@
-<div>
+<div class="filter">
   <label for="zona">Filtrar por Zona:</label>
   <select
     [(ngModel)]="selectedCategory"
@@ -13,12 +13,12 @@
   <table class="user-table">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Sexo</th>
-        <th>Edad</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>DNI</th>
         <th>Zona</th>
-        <th>Pago</th>
-        <th>Acciones</th>
+        <th>Captura de pago</th>
+        <th>Confirmación</th>
       </tr>
     </thead>
     <tbody>
@@ -36,4 +36,17 @@
       </tr>
     </tbody>
   </table>
+</div>
+<!-- Botón "Confirmar Pago" -->
+<button class="confirm-btn" onclick="openModal(this)">Confirmar Pago</button>
+
+<!-- Pop-up / Modal -->
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <h2>¿Estás seguro de confirmar el pago?</h2>
+    <div class="modal-buttons">
+      <button class="confirm-yes" onclick="confirmPayment()">Sí</button>
+      <button class="confirm-no" onclick="closeModal()">No</button>
+    </div>
+  </div>
 </div>
