@@ -1,97 +1,96 @@
-/* Estilos generales para la tabla */
-.user-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 16px;
-  margin-bottom: 20px;
+body {
+  background-color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
 }
 
-/* Contenedor de filtro */
+.container {
+  margin: 2rem;
+}
+
+.user-table {
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
 .filter {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  max-width: 400px; /* Ancho máximo del contenedor */
-  width: 100%; /* Asegura que el contenido ocupe el 100% del contenedor */
-}
-
-/* Estilo para la etiqueta */
-.filter label {
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: white;
-  font-weight: 600; /* Añade un poco de peso a la fuente */
-}
-
-/* Estilo para el select */
-.filter select {
-  padding: 10px 12px; /* Espaciado interno para el select */
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  max-width: 400px;
   width: 100%;
-  background-color: #fff;
+}
+
+.filter label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.filter select {
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.7rem;
+  width: 100%;
+  background-color: #f7f7f7;
   box-sizing: border-box;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%204%205%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M2%200L0%202h4zM2%205L0%203h4z%22/%3E%3C/svg%3E');
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
+  background-position: right 0.7rem center;
+  background-size: 0.8rem;
   cursor: pointer;
 }
 
-/* Estilo para el icono de dropdown */
 .filter select::-ms-expand {
   display: none;
 }
 
-/* Estilo de hover y focus para el select */
 .filter select:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilo responsivo */
 @media (max-width: 768px) {
   .filter {
-    max-width: 100%; /* Elimina el ancho máximo para pantallas pequeñas */
+    max-width: 100%;
   }
 
   .filter select {
-    width: 100%; /* Asegura que el select ocupe todo el ancho en pantallas pequeñas */
+    width: 100%;
   }
 }
 
-/* Estilos para las celdas */
 .user-table th,
 .user-table td {
   background-color: white;
-  padding: 12px;
+  padding: 0.8rem;
   border: 1px solid #ddd;
   text-align: left;
 }
 
-/* Estilos para la cabecera */
 .user-table th {
   background-color: #f4f4f4;
   font-weight: bold;
 }
 
-/* Estilos para el select */
 select {
-  margin-bottom: 15px;
-  padding: 8px;
-  font-size: 16px;
+  margin-bottom: 0.9rem;
+  padding: 0.5rem;
+  font-size: 1rem;
   width: 100%;
   max-width: 300px;
   box-sizing: border-box;
 }
 
-/* Estilos responsivos para pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 415px) {
   .user-table {
     font-size: 14px;
   }
@@ -101,14 +100,12 @@ select {
     padding: 10px;
   }
 
-  /* Hacer que la tabla sea scrollable horizontalmente en pantallas pequeñas */
   .user-table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
   }
 
-  /* Mostrar el nombre de la columna en la celda en pantallas pequeñas */
   .user-table tr {
     display: block;
     margin-bottom: 10px;
@@ -146,7 +143,6 @@ select {
   }
 }
 
-/* Estilos para botones */
 .user-table button {
   padding: 8px 12px;
   font-size: 14px;
@@ -154,7 +150,7 @@ select {
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 15px;
   transition: background-color 0.3s ease;
 }
 
@@ -162,17 +158,16 @@ select {
   background-color: #0056b3;
 }
 
-/* Estilos generales */
 .modal {
-  display: none; /* Oculto por defecto */
-  position: fixed; /* Fijo para que se superponga al contenido */
-  z-index: 1000; /* Asegura que el modal esté en la parte superior */
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
 }
@@ -225,14 +220,12 @@ select {
   background-color: #c82333;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
   .modal-content {
     max-width: 90%;
   }
 }
 
-/* Estilo para el botón "Confirmar Pago" cuando está completado */
 .completed {
   background-color: #6c757d !important;
   cursor: not-allowed;
