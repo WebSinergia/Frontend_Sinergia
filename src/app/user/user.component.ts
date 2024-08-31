@@ -14,6 +14,8 @@ export class UserComponent {
   selectedCategory: string | null = 'All';
   isModalOpen = false;
   userId = '';
+  filteredZone: string | null = '';
+  loading = false;
 
   constructor(public router: Router, public inscripcionesService: InscripcionesService) {}
 
@@ -31,15 +33,19 @@ export class UserComponent {
   }
 
   confirmarPago(){
-    console.log("confirmar");
+    this.loading = true;
     this.inscripcionesService.editUserById(this.userId).subscribe(
       (response) => {
         console.log('ID editado con exito', response);
+        this.selectedCategory = '';
         this.getUserList();
+        this.filterByZone(this.filteredZone);
         this.closeModal();
+        this.loading = false;
       },
       (error) => {
         console.error('Error al enviar el formulario', error);
+        this.loading = false;
       }
     );
     
@@ -47,15 +53,18 @@ export class UserComponent {
   }
 
   getUserList() {
+    this.loading = true;
     this.inscripcionesService.getUserList().subscribe(
       (response) => {
         console.log('Respuesta Exitosa', response);
         this.userData = response;
         this.filteredUserData = response;
         this.extractZones();
+        this.loading = false;
       },
       (error) => {
         console.error('Error al enviar el formulario', error);
+        this.loading = false;
       }
     );
   }
@@ -65,6 +74,7 @@ export class UserComponent {
   }
 
   filterByZone(zone: string | null) {
+    this.filteredZone = zone;
     if (zone) {
       this.filteredUserData = this.userData.filter(
         (user) => user.us_zone == zone

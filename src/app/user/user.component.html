@@ -10,6 +10,10 @@
 
 <body>
   <div class="container">
+    <div id="splash-screen" *ngIf="loading">
+      <div *ngIf="loading" class="spinner"></div>
+      <p *ngIf="loading" class="loading-text">Cargando...</p>
+    </div> 
     <h2 class="title-text">Admin Panel</h2>
     <div class="filter">
       <label for="zona">Filtrar por Zona:</label>
