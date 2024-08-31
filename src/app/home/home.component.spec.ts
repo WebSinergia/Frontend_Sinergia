@@ -22,13 +22,4 @@ describe('HomeComponent', () => {
   });
 });
 
-document.querySelector('a[href="#inscribete"]').addEventListener('click', function(e) {
-  e.preventDefault();
-  document.querySelector('#inscribete').scrollIntoView({
-      behavior: 'smooth'
-  });
-});
-
-document.getElementById('inscribete').scrollIntoView({ behavior: 'smooth' });
-
 
