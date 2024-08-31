@@ -1,9 +1,16 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+  rel="stylesheet"
+/>
+
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <body>
   <div class="container">
+    <h2 class="title-text">Admin Panel</h2>
     <div class="filter">
       <label for="zona">Filtrar por Zona:</label>
       <select
@@ -14,17 +21,17 @@
         <option *ngFor="let zone of zones" [value]="zone">{{ zone }}</option>
       </select>
     </div>
-  
-    <div>
+
+    <div class="table-container">
       <table class="user-table">
         <thead>
           <tr>
-            <th>Nombres</th>
+            <th class="th_border">Nombres</th>
             <th>Apellidos</th>
             <th>DNI</th>
             <th>Zona</th>
-            <th>Captura de pago</th>
-            <th>Confirmación</th>
+            <th>Pago</th>
+            <th class="th_border_end">Confirmacion</th>
           </tr>
         </thead>
         <tbody>
@@ -34,28 +41,25 @@
             <td>{{ user.us_dni }}</td>
             <td>{{ user.us_zone }}</td>
             <td>
-              <button>Ver Imagen</button>
+              <i *ngIf="user.us_pago_confirmado" class="bx bx-check" style="color:#81e059; font-size: 40px"></i>
+              <i *ngIf="!user.us_pago_confirmado" class="bx bx-x" style="color:#fb0b06; font-size: 40px"></i>
             </td>
+            
             <td>
-              <button>Confimar Pago</button>
+              <button (click)="openModal(user.us_id)">Confimar Pago</button>
             </td>
           </tr>
         </tbody>
+
+        <!-- Modal -->
+        <div id="paymentModal" class="modal" *ngIf="isModalOpen">
+          <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h5 class="confirm-title">Desea confirmar el pago?</h5>
+            <button (click)="confirmarPago()">Confirmar</button>
+          </div>
+        </div>
       </table>
     </div>
-    <!-- Botón "Confirmar Pago" -->
-    <button class="confirm-btn" onclick="openModal(this)">Confirmar Pago</button>
-  
-    <!-- Pop-up / Modal -->
-    <div id="confirmationModal" class="modal">
-      <div class="modal-content">
-        <h2>¿Estás seguro de confirmar el pago?</h2>
-        <div class="modal-buttons">
-          <button class="confirm-yes" onclick="confirmPayment()">Sí</button>
-          <button class="confirm-no" onclick="closeModal()">No</button>
-        </div>
-      </div>
-    </div>
   </div>
-  
 </body>

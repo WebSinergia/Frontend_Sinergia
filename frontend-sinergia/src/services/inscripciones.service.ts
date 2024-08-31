@@ -54,6 +54,13 @@ export class InscripcionesService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  editUserById(id: string): Observable<any> {
+    const url = `${this.basePath}/confirm/${id}`;
+    return this.http
+      .put<any>(url, null)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   createUser(user: any): Observable<any> {
     const url = `${this.basePath}/create`;
     return this.http

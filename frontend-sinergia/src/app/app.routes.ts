@@ -1,4 +1,3 @@
-import { UserModule } from './user/user.module';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -19,6 +18,11 @@ export const routes: Routes = [
     path: 'user-list',
     loadChildren: () =>
       import('./user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'home',

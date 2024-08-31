@@ -406,7 +406,7 @@
   );
   background-size: 200% 200%;
   transition: background-position 0.6s ease;
-  cursor: pointer; /* Esto hace que el cursor cambie al ícono de mano */
+  cursor: pointer;
 }
 
 .submit-text,
