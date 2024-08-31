@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { InscripcionesService } from '../../services/inscripciones.service';
 
@@ -14,7 +15,7 @@ export class UserComponent {
   isModalOpen = false;
   userId = '';
 
-  constructor(public inscripcionesService: InscripcionesService) {}
+  constructor(public router: Router, public inscripcionesService: InscripcionesService) {}
 
   ngOnInit() {
     this.getUserList();
@@ -41,7 +42,7 @@ export class UserComponent {
       }
     );
     
-    window.location.reload();
+    this.router.navigate(['/user-list']);
   }
 
   getUserList() {
