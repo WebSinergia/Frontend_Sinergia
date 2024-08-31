@@ -35,6 +35,7 @@ export class UserComponent {
     this.inscripcionesService.editUserById(this.userId).subscribe(
       (response) => {
         console.log('ID editado con exito', response);
+        this.getUserList();
         this.closeModal();
       },
       (error) => {
