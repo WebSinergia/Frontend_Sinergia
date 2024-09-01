@@ -39,8 +39,10 @@
                   </div>
                   workshops section -->
                   <div class="navbar__item navbar__item-2">
-                    <button style="cursor:pointer" (click)="redirectToLogin()">
-                      <h2 class="navbar__link--inscribirse ui heading size-headingxs">
+                    <button style="cursor: pointer" (click)="redirectToLogin()">
+                      <h2
+                        class="navbar__link--inscribirse ui heading size-headingxs"
+                      >
                         Admin
                       </h2>
                     </button>
@@ -262,6 +264,7 @@
                   ></iframe>
                 </div>
               </div>
+
               <!-- INSCRIPCIONES-->
               <div id="inscribete" class="content__inscription">
                 <div class="inscription__column container-xs">
@@ -365,10 +368,17 @@
                           </select>
                         </div>
                       </div>
-                      <!-- (click)=" onSubmit( firstname.value, lastname.value,
-                      dni.value, celular.value, zone.value )" -->
                       <button
                         class="inscription__button ui button size-sm"
+                        (click)="
+                          onSubmit(
+                            firstname.value,
+                            lastname.value,
+                            dni.value,
+                            celular.value,
+                            zone.value
+                          )
+                        "
                         [disabled]="isSubmitting"
                       >
                         Inscribirse
