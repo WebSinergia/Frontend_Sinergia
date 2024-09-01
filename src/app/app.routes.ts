@@ -25,6 +25,11 @@ export const routes: Routes = [
       import('./login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: 'asistencia',
+    loadChildren: () =>
+      import('./asistencia/asistencia.module').then((m) => m.AsistenciaModule),
+  },
+  {
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomeModule),
