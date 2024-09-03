@@ -35,6 +35,7 @@
             <th>DNI</th>
             <th>Zona</th>
             <th>Pago</th>
+            <th>Ubicacion</th>
             <th class="th_border_end">Confirmacion</th>
           </tr>
         </thead>
@@ -48,7 +49,16 @@
               <i *ngIf="user.us_pago_confirmado" class="bx bx-check" style="color:#81e059; font-size: 40px"></i>
               <i *ngIf="!user.us_pago_confirmado" class="bx bx-x" style="color:#fb0b06; font-size: 40px"></i>
             </td>
+            <td *ngIf="user.us_lugar == 'AU'" style="display: inline-flex; align-items: center;">
+              <i class='bx bxs-building-house' style="font-size: 25px; margin-right: 5px;"></i>
+              <h6 style="font-size: 14px; margin: 0;">{{ user.us_lugar }}</h6>
+            </td>
+            <td *ngIf="user.us_lugar == 'CC'" style="display: inline-flex; align-items: center;">
+              <i class='bx bxs-video-recording' style="font-size: 25px; margin-right: 5px;"></i>
+              <h6 style="font-size: 14px; margin: 0;">{{ user.us_lugar }}</h6>
+            </td>
             
+            <!-- <td style="text-align: center;">{{ user.us_lugar }}</td> -->
             <td>
               <button (click)="openModal(user.us_id)">Confimar Pago</button>
             </td>
