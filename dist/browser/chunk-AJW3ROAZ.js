@@ -1,1 +1,0 @@
-import{e as a,v as r}from"./chunk-XWCZBFVY.js";var n=(()=>{class t{userData=new a(null);userData$=this.userData.asObservable();setUserData(e){this.userData.next(e)}getUserData(){return this.userData.getValue()}static \u0275fac=function(s){return new(s||t)};static \u0275prov=r({token:t,factory:t.\u0275fac,providedIn:"root"})}return t})();export{n as a};
