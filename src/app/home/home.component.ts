@@ -42,10 +42,10 @@ export class HomeComponent {
     us_telefono: string,
     us_zone: string
   ): void {
-    this.isSubmitting = true;
-    const userData = { us_nombres, us_apellidos, us_dni, us_telefono, us_zone };
-    localStorage.setItem('userData', JSON.stringify(userData));
-    this.router.navigate(['/inscriptions']);
-    this.isSubmitting = false;
+    // this.isSubmitting = true;
+    // const userData = { us_nombres, us_apellidos, us_dni, us_telefono, us_zone };
+    // localStorage.setItem('userData', JSON.stringify(userData));
+    // this.router.navigate(['/inscriptions']);
+    // this.isSubmitting = false;
   }
 }

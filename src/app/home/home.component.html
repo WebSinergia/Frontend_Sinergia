@@ -368,17 +368,17 @@
                           </select>
                         </div>
                       </div>
+                      <!-- (click)="
+                      onSubmit(
+                        firstname.value,
+                        lastname.value,
+                        dni.value,
+                        celular.value,
+                        zone.value
+                      )
+                    " -->
                       <button
                         class="inscription__button ui button size-sm"
-                        (click)="
-                          onSubmit(
-                            firstname.value,
-                            lastname.value,
-                            dni.value,
-                            celular.value,
-                            zone.value
-                          )
-                        "
                         [disabled]="isSubmitting"
                       >
                         Inscribirse
