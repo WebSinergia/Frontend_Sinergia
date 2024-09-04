@@ -4,8 +4,6 @@ body {
   font-weight: 500;
 }
 
-
-/* Estilos para el splash screen */
 #splash-screen {
   position: fixed;
   top: 0;
@@ -32,14 +30,18 @@ body {
 
 /* Animación del spinner */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Estilos para el texto de carga */
 .loading-text {
   margin-top: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: #333;
 }
@@ -49,11 +51,10 @@ body {
 }
 
 .filter {
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  width: 100%;
+  width: 70%;
 }
 
 .filter label {
@@ -90,14 +91,8 @@ body {
   box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-@media (max-width: 768px) {
-  .filter {
-    max-width: 100%;
-  }
-
-  .filter select {
-    width: 100%;
-  }
+.count-container p {
+  margin-bottom: 1rem;
 }
 
 select {
@@ -266,4 +261,3 @@ select {
   text-decoration: none;
   cursor: pointer;
 }
-

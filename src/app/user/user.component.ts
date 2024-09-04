@@ -16,6 +16,8 @@ export class UserComponent {
   userId = '';
   filteredZone: string | null = '';
   loading = false;
+  totalUserCount: number = 0;
+  filteredUserCount: number = 0;
 
   constructor(public router: Router, public inscripcionesService: InscripcionesService) {}
 
@@ -59,6 +61,8 @@ export class UserComponent {
         console.log('Respuesta Exitosa', response);
         this.userData = response;
         this.filteredUserData = response;
+        this.totalUserCount = this.userData.length;
+        this.filteredUserCount = this.filteredUserData.length; 
         this.extractZones();
         this.loading = false;
       },
@@ -82,5 +86,6 @@ export class UserComponent {
     } else {
       this.filteredUserData = this.userData;
     }
+    this.filteredUserCount = this.filteredUserData.length;
   }
 }

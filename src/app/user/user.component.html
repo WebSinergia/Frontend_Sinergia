@@ -5,25 +5,42 @@
   rel="stylesheet"
 />
 
-
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
 
 <body>
   <div class="container">
     <div id="splash-screen" *ngIf="loading">
       <div *ngIf="loading" class="spinner"></div>
       <p *ngIf="loading" class="loading-text">Cargando...</p>
-    </div> 
+    </div>
     <h2 class="title-text">Admin Panel</h2>
-    <div class="filter">
-      <label for="zona">Filtrar por Zona:</label>
-      <select
-        [(ngModel)]="selectedCategory"
-        id="zona"
-        (ngModelChange)="filterByZone($event)"
-      >
-        <option *ngFor="let zone of zones" [value]="zone">{{ zone }}</option>
-      </select>
+    <div class="filter-container">
+      <div class="filter">
+        <label for="zona"> <strong>Filtrar por Zona:</strong></label>
+        <select
+          [(ngModel)]="selectedCategory"
+          id="zona"
+          (ngModelChange)="filterByZone($event)"
+        >
+          <option *ngFor="let zone of zones" [value]="zone">{{ zone }}</option>
+        </select>
+      </div>
+
+      <div class="count-container">
+        <p>
+          <strong
+            >{{
+              selectedCategory == null || selectedCategory == "All"
+                ? "Total"
+                : "Zona " + selectedCategory
+            }}:</strong
+          >
+          {{ filteredUserData.length }} de {{ totalUserCount }}
+        </p>
+      </div>
     </div>
 
     <div class="table-container">
@@ -46,18 +63,38 @@
             <td>{{ user.us_dni }}</td>
             <td>{{ user.us_zone }}</td>
             <td>
-              <i *ngIf="user.us_pago_confirmado" class="bx bx-check" style="color:#81e059; font-size: 40px"></i>
-              <i *ngIf="!user.us_pago_confirmado" class="bx bx-x" style="color:#fb0b06; font-size: 40px"></i>
+              <i
+                *ngIf="user.us_pago_confirmado"
+                class="bx bx-check"
+                style="color: #81e059; font-size: 40px"
+              ></i>
+              <i
+                *ngIf="!user.us_pago_confirmado"
+                class="bx bx-x"
+                style="color: #fb0b06; font-size: 40px"
+              ></i>
             </td>
-            <td *ngIf="user.us_lugar == 'AU'" style="display: inline-flex; align-items: center;">
-              <i class='bx bxs-building-house' style="font-size: 25px; margin-right: 5px;"></i>
-              <h6 style="font-size: 14px; margin: 0;">{{ user.us_lugar }}</h6>
+            <td
+              *ngIf="user.us_lugar == 'AU'"
+              style="display: inline-flex; align-items: center"
+            >
+              <i
+                class="bx bxs-building-house"
+                style="font-size: 25px; margin-right: 5px"
+              ></i>
+              <h6 style="font-size: 14px; margin: 0">{{ user.us_lugar }}</h6>
             </td>
-            <td *ngIf="user.us_lugar == 'CC'" style="display: inline-flex; align-items: center;">
-              <i class='bx bxs-video-recording' style="font-size: 25px; margin-right: 5px;"></i>
-              <h6 style="font-size: 14px; margin: 0;">{{ user.us_lugar }}</h6>
+            <td
+              *ngIf="user.us_lugar == 'CC'"
+              style="display: inline-flex; align-items: center"
+            >
+              <i
+                class="bx bxs-video-recording"
+                style="font-size: 25px; margin-right: 5px"
+              ></i>
+              <h6 style="font-size: 14px; margin: 0">{{ user.us_lugar }}</h6>
             </td>
-            
+
             <!-- <td style="text-align: center;">{{ user.us_lugar }}</td> -->
             <td>
               <button (click)="openModal(user.us_id)">Confimar Pago</button>
