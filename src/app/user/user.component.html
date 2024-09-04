@@ -31,16 +31,21 @@
 
       <div class="count-container">
         <p>
-          <strong
-            >{{
+          <strong>
+            {{
               selectedCategory == null || selectedCategory == "All"
                 ? "Total"
+                : selectedCategory == '15'
+                ? "CDL"
+                : selectedCategory == '16'
+                ? "Oquendo"
                 : "Zona " + selectedCategory
-            }}:</strong
-          >
+            }}:
+          </strong>
           {{ filteredUserData.length }} de {{ totalUserCount }}
         </p>
       </div>
+      
     </div>
 
     <div class="table-container">
