@@ -1,9 +1,45 @@
-<form>
-  <label for="name">Nombre</label>
-  <input type="text" id="name" [value]="userData.us_nombres" disabled />
-
-  <label for="email">Correo electrónico</label>
-  <input type="email" id="email" [value]="userData.us_apellidos" disabled />
-
-  <button type="submit">Marcar asistencia</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar QR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div *ngIf="userData">
+      <div class="container-v">
+        <div class="container-qr">
+          <h3>Marcado de Asistencia</h3>
+        </div>
+        <div>
+          <h6 style="margin-top: 0.5rem;">Nombres:</h6>
+          <div class="container-info">
+            <p class="extra-info">
+              {{ userData.us_nombres + " " + userData.us_apellidos }}
+            </p>
+          </div>
+          <h6>Zona:</h6>
+          <div class="container-info">
+            <p class="extra-info">{{ userData.us_zone }}</p>
+          </div>
+          <h6>Lugar:</h6>
+          <div class="container-info">
+            <p class="extra-info" *ngIf="userData.us_lugar === 'AU'">Auditorio</p>
+            <p class="extra-info" *ngIf="userData.us_lugar !== 'AU'">Circuito Cerrado - Piso 3</p>
+          </div>
+          <h6>Fecha:</h6>
+          <div class="container-info">
+            <p class="extra-info">06/09/24</p>
+          </div>
+          <button class="button-detail" type="submit">Marcar Asistencia</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
