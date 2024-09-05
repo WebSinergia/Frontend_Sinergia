@@ -24,6 +24,17 @@ export class AsistenciaComponent {
     }
   }
 
+  marcarAsistencia(){
+    // this.inscripcionesService.checkDay1(this.userId).subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //   },
+    //   (error) => {
+    //     console.error('Error al obtener los datos del usuario:', error);
+    //   }
+    // )
+  }
+
   getUserData() {
     if (this.userId) {
       this.inscripcionesService.getUserByID(this.userId).subscribe(

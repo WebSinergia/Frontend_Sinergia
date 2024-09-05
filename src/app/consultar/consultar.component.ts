@@ -38,6 +38,10 @@ export class ConsultarComponent {
     this.router.navigate([`/home`]);
   }
 
+  marcarAsistencia(){
+    
+  }
+
   getQrCodeUrl(qrCodeUrl: string): string {
     console.log(qrCodeUrl.replace('/media/', '/conferencia/media/'));
     return qrCodeUrl.replace('/media/', '/conferencia/media/');

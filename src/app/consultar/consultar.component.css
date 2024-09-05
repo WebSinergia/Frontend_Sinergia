@@ -59,7 +59,7 @@ input[type="text"] {
 }
 
 input:-internal-autofill-selected {
-    background-color: #1111 !important;
+  background-color: #1111 !important;
 }
 
 button {
@@ -67,13 +67,7 @@ button {
   font-size: 1rem;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    #feb13e,
-    #f4467a,
-    #9c1baf,
-    #0049c9
-  );
+  background: linear-gradient(90deg, #feb13e, #f4467a, #9c1baf, #0049c9);
   background-size: 400%;
   color: #fff;
   cursor: pointer;
@@ -146,4 +140,9 @@ button {
   justify-content: center;
   margin-top: 1rem;
   width: 70%;
+}
+
+.container-icon {
+  display: flex !important;
+  flex-direction: column;
 }

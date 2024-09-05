@@ -10,15 +10,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div *ngIf="userData">
       <div class="container-v">
         <div class="container-qr">
-          <h3>Marcado de Asistencia</h3>
+          <h3>Asistencia</h3>
         </div>
-        <div>
-          <h6 style="margin-top: 0.5rem;">Nombres:</h6>
+        <div class="container-info-main">
+          <h6>Nombres:</h6>
           <div class="container-info">
             <p class="extra-info">
               {{ userData.us_nombres + " " + userData.us_apellidos }}
@@ -30,14 +35,31 @@
           </div>
           <h6>Lugar:</h6>
           <div class="container-info">
-            <p class="extra-info" *ngIf="userData.us_lugar === 'AU'">Auditorio</p>
-            <p class="extra-info" *ngIf="userData.us_lugar !== 'AU'">Circuito Cerrado - Piso 3</p>
+            <p class="extra-info" *ngIf="userData.us_lugar === 'AU'">
+              Auditorio
+            </p>
+            <p class="extra-info" *ngIf="userData.us_lugar !== 'AU'">
+              Circuito Cerrado - Piso 3
+            </p>
           </div>
           <h6>Fecha:</h6>
           <div class="container-info">
             <p class="extra-info">06/09/24</p>
           </div>
-          <button class="button-detail" type="submit">Marcar Asistencia</button>
+          <h6>Pago:</h6>
+          <div class="container-icon">
+            <i
+              *ngIf="userData.us_pago_confirmado"
+              class="bx bx-check"
+              style="color: #81e059; font-size: 40px"
+            ></i>
+            <i
+              *ngIf="!userData.us_pago_confirmado"
+              class="bx bx-x"
+              style="color: #fb0b06; font-size: 40px"
+            ></i>
+          </div>
+          <button class="button-detail" type="submit" (click)="marcarAsistencia()">Marcar Asistencia</button>
         </div>
       </div>
     </div>

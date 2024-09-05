@@ -21,21 +21,18 @@ body {
 h1 {
   font-family: "SUSE", sans-serif;
   font-size: 2.5em;
-  margin-bottom: 1rem;
   color: #eaeaea;
 }
 
 h3 {
   font-family: "SUSE", sans-serif;
-  font-size: 1.5em;
-  margin-bottom: 1.5rem;
+  font-size: 2em;
   color: #eaeaea;
 }
 
 h6 {
   font-family: "SUSE", sans-serif;
   font-size: 1em;
-  margin: 0.3rem 0;
   color: #eaeaea;
 }
 
@@ -98,10 +95,29 @@ button {
 }
 
 .container-v {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #212121;
-  margin: 2rem;
-  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
+  margin: 1rem;
+  padding: 1.5rem 0.5rem;
   border-radius: 10px;
+
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    min-width: 250px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 91%;
+    margin: 1rem;
+    padding: 1rem;
+    min-width: 200px;
+  }
 }
 
 .container-qr {
@@ -121,9 +137,15 @@ button {
   align-items: flex-start;
 }
 
+.container-info-main {
+  width: 100%;
+  padding: 0.7rem;
+}
+
 .extra-info {
   font-family: "Montserrat", sans-serif;
   margin: 0;
+  font-size: 16px;
 }
 
 .button-detail {
@@ -132,6 +154,7 @@ button {
   justify-content: center;
   margin-top: 1rem;
   width: 100%;
+  padding: 1rem;
 }
 
 .button-detail-v {
