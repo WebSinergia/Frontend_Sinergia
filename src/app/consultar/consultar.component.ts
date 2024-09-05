@@ -11,6 +11,7 @@ export class ConsultarComponent {
   dni: string = '';
   userData: any;
   qrCodeUrl: string = '';
+  loading = false;
 
   constructor(
     private inscripcionesService: InscripcionesService,
@@ -18,19 +19,23 @@ export class ConsultarComponent {
   ) {}
 
   search() {
+    this.loading = true;
     if (this.dni) {
       this.inscripcionesService.getUserByDni(this.dni).subscribe(
         (response) => {
           console.log('Datos del usuario:', response);
           this.userData = response;
           this.qrCodeUrl = this.getQrCodeUrl(this.userData.us_qrcode);
+          this.loading = false;
         },
         (error) => {
           console.error('Error al buscar usuario:', error);
+          this.loading = false;
         }
       );
     } else {
       console.log('Datos del usuario');
+      this.loading = false;
     }
   }
 
