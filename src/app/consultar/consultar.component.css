@@ -53,7 +53,7 @@ input[type="text"] {
   background-color: #111;
   color: #fff;
   outline: none;
-  margin-bottom: 20px;
+  margin-bottom: 0.5rem;
   width: 250px;
   text-align: center;
 }
@@ -65,16 +65,15 @@ button {
   border-radius: 10px;
   background: linear-gradient(
     90deg,
-    #0049c9,
-    #9c1baf,
-    #f01596,
+    #feb13e,
     #f4467a,
-    #feb13e
+    #9c1baf,
+    #0049c9
   );
   background-size: 400%;
   color: #fff;
   cursor: pointer;
-  transition: background-position 0.2s ease, transform 0.3s ease;
+  transition: background-position 3s ease, transform 0.3s ease;
 }
 
 button:hover {
@@ -92,7 +91,7 @@ button:hover {
 }
 
 button {
-  animation: neon-glow 3s infinite alternate;
+  animation: neon-glow 2s infinite alternate;
 }
 
 .img-qr {
@@ -135,4 +134,12 @@ button {
   justify-content: center;
   margin-top: 1rem;
   width: 100%;
+}
+
+.button-detail-v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 70%;
 }
