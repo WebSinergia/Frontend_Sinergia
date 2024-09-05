@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar QR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container" *ngIf="!userData">
+      <h1>Consultar QR</h1>
+      <form>
+        <input
+          type="text"
+          placeholder="Ingrese su DNI"
+          [(ngModel)]="dni"
+          name="dni"
+          required
+        />
+        <button type="submit" (click)="search()">Buscar</button>
+      </form>
+    </div>
+
+    <div *ngIf="userData">
+      <div class="container-v">
+        <div class="container-qr">
+          <h3>Tu entrada para Sinergia 2024</h3>
+          <img class="img-qr" [src]="qrCodeUrl" alt="Código QR" />
+        </div>
+        <div>
+          <h6 style="margin-top: 0.5rem;">Nombres:</h6>
+          <div class="container-info">
+            <p class="extra-info">
+              {{ userData.us_nombres + " " + userData.us_apellidos }}
+            </p>
+          </div>
+          <h6>Zona:</h6>
+          <div class="container-info">
+            <p class="extra-info">{{ userData.us_zone }}</p>
+          </div>
+          <h6>Lugar:</h6>
+          <div class="container-info">
+            <p class="extra-info">{{ userData.us_lugar }}</p>
+          </div>
+          <button class="button-detail" type="submit" (click)="regresar()">Regresar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

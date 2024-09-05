@@ -1,3 +1,4 @@
+import { ConsultarModule } from './consultar/consultar.module';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -28,6 +29,11 @@ export const routes: Routes = [
     path: 'asistencia',
     loadChildren: () =>
       import('./asistencia/asistencia.module').then((m) => m.AsistenciaModule),
+  },
+  {
+    path: 'consultar',
+    loadChildren: () =>
+      import('./consultar/consultar.module').then((m) => m.ConsultarModule),
   },
   {
     path: 'home',

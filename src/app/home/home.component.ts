@@ -31,8 +31,8 @@ export class HomeComponent {
     return qrCodeUrl.replace('/media/', '/conferencia/media/');
   }
 
-  redirectToLogin(){
-    this.router.navigate(['/login']);
+  redirectToConsultar(){
+    this.router.navigate(['/consultar']);
   }
 
   onSubmit(

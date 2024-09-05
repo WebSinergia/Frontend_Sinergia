@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-family: "SUSE", sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 1rem;
+  color: #eaeaea;
+}
+
+h3 {
+  font-family: "SUSE", sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 1.5rem;
+  color: #eaeaea;
+}
+
+h6 {
+  font-family: "SUSE", sans-serif;
+  font-size: 1em;
+  margin: 0.3rem 0;
+  color: #eaeaea;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 1rem 2rem;
+  font-size: 1em;
+  border: 2px solid #494949;
+  border-radius: 10px;
+  background-color: #111;
+  color: #fff;
+  outline: none;
+  margin-bottom: 20px;
+  width: 250px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #0049c9,
+    #9c1baf,
+    #f01596,
+    #f4467a,
+    #feb13e
+  );
+  background-size: 400%;
+  color: #fff;
+  cursor: pointer;
+  transition: background-position 0.2s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-position: right;
+  transform: scale(1.05);
+}
+
+@keyframes neon-glow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+button {
+  animation: neon-glow 3s infinite alternate;
+}
+
+.img-qr {
+  width: 200px;
+  height: 200px;
+}
+
+.container-v {
+  background-color: #212121;
+  margin: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.container-qr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container-info {
+  background-color: #3a3a3a;
+  padding: 0.8rem 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.extra-info {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+.button-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 100%;
+}

@@ -54,6 +54,13 @@ export class InscripcionesService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  getUserByID(id: number): Observable<any[]> {
+    const url = `${this.basePath}/search-id?id=${id}`;
+    return this.http
+      .get<any[]>(url)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   editUserById(id: string): Observable<any> {
     const url = `${this.basePath}/confirm/${id}`;
     return this.http
