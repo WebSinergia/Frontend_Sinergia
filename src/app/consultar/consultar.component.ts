@@ -35,7 +35,7 @@ export class ConsultarComponent {
   }
 
   regresar() {
-    this.router.navigate([`/consultar`]);
+    this.router.navigate([`/home`]);
   }
 
   getQrCodeUrl(qrCodeUrl: string): string {
