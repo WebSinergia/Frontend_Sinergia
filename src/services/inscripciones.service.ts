@@ -75,6 +75,13 @@ export class InscripcionesService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  checkAsistenceDay1(id: number): Observable<any[]> {
+    const url = `${this.basePath}/asistence?id=${id}`;
+    return this.http
+      .get<any[]>(url)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   getImageByZone(zone_id: number): Observable<any[]> {
     const url = `${this.basePath}/payment/${zone_id}`;
     return this.http

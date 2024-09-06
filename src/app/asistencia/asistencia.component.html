@@ -17,7 +17,7 @@
     />
   </head>
   <body>
-    <div *ngIf="userData">
+    <div *ngIf="userData && !asistenciaMarcada">
       <div class="container-v">
         <div class="container-qr">
           <h3>Asistencia</h3>
@@ -59,9 +59,20 @@
               style="color: #fb0b06; font-size: 40px"
             ></i>
           </div>
-          <button class="button-detail" type="submit" (click)="marcarAsistencia()">Marcar Asistencia</button>
+          <button
+            class="button-detail"
+            type="submit"
+            [disabled] = "userData.us_day1 == true"
+            (click)="marcarAsistencia()"
+          >
+            Marcar Asistencia
+          </button>
         </div>
       </div>
+    </div>
+    <div *ngIf="asistenciaMarcada" class="container-asistencia">
+      <h1>Asistencia Marcada</h1>
+      <i class="bx bx-check" style="color: #81e059; font-size: 90px"></i>
     </div>
   </body>
 </html>

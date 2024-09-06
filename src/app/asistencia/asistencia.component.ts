@@ -10,6 +10,7 @@ import { InscripcionesService } from '../../services/inscripciones.service';
 export class AsistenciaComponent {
   userId: number = 0;
   userData: any = {};
+  asistenciaMarcada = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,14 +26,18 @@ export class AsistenciaComponent {
   }
 
   marcarAsistencia(){
-    // this.inscripcionesService.checkDay1(this.userId).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //   },
-    //   (error) => {
-    //     console.error('Error al obtener los datos del usuario:', error);
-    //   }
-    // )
+    this.inscripcionesService.checkAsistenceDay1(this.userId).subscribe(
+      (data) => {
+        console.log('Asistencia marcada con exito');
+        this.asistenciaMarcada = true;
+        setTimeout(() => {
+          window.location.href = '/home';
+        }, 3000);
+      },
+      (error) => {
+        console.error('Error al obtener los datos del usuario:', error);
+      }
+    )
   }
 
   getUserData() {

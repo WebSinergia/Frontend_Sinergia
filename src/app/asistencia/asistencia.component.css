@@ -120,6 +120,30 @@ button {
   }
 }
 
+.container-asistencia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
+  margin: 1rem;
+  padding: 1.5rem 0.5rem;
+
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    min-width: 250px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 91%;
+    margin: 1rem;
+    padding: 1rem;
+    min-width: 200px;
+  }
+}
+
 .container-qr {
   display: flex;
   justify-content: center;
@@ -155,6 +179,16 @@ button {
   margin-top: 1rem;
   width: 100%;
   padding: 1rem;
+}
+
+button:disabled {
+  background: gray;
+  color: white;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  transform: scale(1);
 }
 
 .button-detail-v {
