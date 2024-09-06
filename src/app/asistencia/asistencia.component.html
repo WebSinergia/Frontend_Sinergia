@@ -17,6 +17,10 @@
     />
   </head>
   <body>
+    <div id="splash-screen" *ngIf="loading">
+      <div *ngIf="loading" class="spinner"></div>
+      <p *ngIf="loading" class="loading-text">Cargando...</p>
+    </div> 
     <div *ngIf="userData && !asistenciaMarcada">
       <div class="container-v">
         <div class="container-qr">
