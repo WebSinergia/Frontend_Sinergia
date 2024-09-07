@@ -35,7 +35,7 @@ export class AsistenciaComponent {
         this.asistenciaMarcada = true;
         setTimeout(() => {
           window.location.href = '/home';
-        }, 3000);
+        }, 2000);
       },
       (error) => {
         console.error('Error al obtener los datos del usuario:', error);
