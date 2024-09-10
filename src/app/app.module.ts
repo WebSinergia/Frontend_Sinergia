@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,9 @@ import { CommonModule } from '@angular/common';
     CommonModule,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    provideCharts(withDefaultRegisterables())
+  ],
 })
 
 export class AppModule {}

@@ -5,8 +5,8 @@ import {
   MatLineModule,
   coerceNumberProperty,
   setLines
-} from "./chunk-64JDLLTA.js";
-import "./chunk-KS6GHDYJ.js";
+} from "./chunk-WGQ74TZI.js";
+import "./chunk-FQRP3CXZ.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -35,10 +35,11 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵqueryRefresh
-} from "./chunk-TATJEPOY.js";
-import "./chunk-JDFFTI2V.js";
+} from "./chunk-7UUUS2MZ.js";
+import "./chunk-SIYRMNKU.js";
+import "./chunk-WDMUDEB6.js";
 
-// node_modules/@angular/material/fesm2022/grid-list.mjs
+// ../../node_modules/@angular/material/fesm2022/grid-list.mjs
 var _c0 = ["*"];
 var _c1 = [[["", "mat-grid-avatar", ""], ["", "matGridAvatar", ""]], [["", "mat-line", ""], ["", "matLine", ""]], "*"];
 var _c2 = ["[mat-grid-avatar], [matGridAvatar]", "[mat-line], [matLine]", "*"];

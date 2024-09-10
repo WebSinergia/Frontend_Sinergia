@@ -1,0 +1,38 @@
+.container-full {
+  background-color: white;
+  border: 1px solid #c8c8c8;
+  border-radius: 20px;
+  flex: 1 1 100%;
+  padding: 2rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.title {
+  margin-left: 1.5rem;
+  margin-top: 2rem;
+}
+
+.centered-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.container-full .graph {
+  height: 90%;
+  width: 100%;
+}

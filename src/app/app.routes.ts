@@ -39,5 +39,10 @@ export const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'graphics',
+    loadChildren: () =>
+      import('./graphics/graphics.module').then((m) => m.GraphicsModules),
   }
 ];

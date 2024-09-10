@@ -1,8 +1,8 @@
 import {
   BrowserModule,
   DomRendererFactory2
-} from "./chunk-42ASPSAM.js";
-import "./chunk-DVL4XIWF.js";
+} from "./chunk-VJYEP2JX.js";
+import "./chunk-PZZRS6KK.js";
 import {
   AUTO_STYLE,
   AnimationGroupPlayer,
@@ -11,10 +11,10 @@ import {
   sequence,
   style,
   ɵPRE_STYLE
-} from "./chunk-HWROQKO6.js";
+} from "./chunk-57GP4HJJ.js";
 import {
   DOCUMENT
-} from "./chunk-KS6GHDYJ.js";
+} from "./chunk-FQRP3CXZ.js";
 import {
   ANIMATION_MODULE_TYPE,
   Inject,
@@ -29,13 +29,14 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-TATJEPOY.js";
+} from "./chunk-7UUUS2MZ.js";
+import "./chunk-SIYRMNKU.js";
 import {
   __objRest,
   __spreadValues
-} from "./chunk-JDFFTI2V.js";
+} from "./chunk-WDMUDEB6.js";
 
-// node_modules/@angular/animations/fesm2022/browser.mjs
+// ../../node_modules/@angular/animations/fesm2022/browser.mjs
 var LINE_START = "\n - ";
 function invalidTimingValue(exp) {
   return new RuntimeError(3e3, ngDevMode && `The provided timing value "${exp}" is invalid.`);
@@ -3950,7 +3951,7 @@ var AnimationRendererFactory = class {
   }
 };
 
-// node_modules/@angular/platform-browser/fesm2022/animations.mjs
+// ../../node_modules/@angular/platform-browser/fesm2022/animations.mjs
 var _InjectableAnimationEngine = class _InjectableAnimationEngine extends AnimationEngine {
   // The `ApplicationRef` is injected here explicitly to force the dependency ordering.
   // Since the `ApplicationRef` should be created earlier before the `AnimationEngine`, they
