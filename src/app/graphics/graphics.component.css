@@ -1,28 +1,23 @@
 .container-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
+  gap: 1rem; /* Espacio entre los contenedores */
+  justify-content: center;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 300px;
   background-color: white;
   border: 1px solid #c8c8c8;
   border-radius: 20px;
   padding: 1rem;
-  margin: 1rem;
-  width: 100%;
-  flex: 1 1 40%;
+  box-sizing: border-box;
 }
 
 .graph {
   width: 100%;
   overflow: hidden;
-  flex: 1;
 }
 
 .container-full {

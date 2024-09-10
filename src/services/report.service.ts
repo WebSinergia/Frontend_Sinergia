@@ -53,4 +53,11 @@ export class ReportService {
       .get<any>(url)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getAsistenciaTotal(): Observable<any> {
+    const url = `${this.basePath}/asistence-total`;
+    return this.http
+      .get<any>(url)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }

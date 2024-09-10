@@ -10,6 +10,7 @@ import { Chart, registerables } from 'chart.js';
 export class GraphicsComponent implements OnInit {
   chart1: any;
   chart2: any;
+  chart3: any;
 
   constructor(private reportService: ReportService) {
     Chart.register(...registerables);
@@ -18,6 +19,7 @@ export class GraphicsComponent implements OnInit {
   ngOnInit(): void {
     this.getAsistenciaData();
     this.getComparativaData();
+    this.getDistribucionData();
   }
 
   getAsistenciaData() {
@@ -39,6 +41,16 @@ export class GraphicsComponent implements OnInit {
       const dia2 = data.map((item) => item.asistentes_dia2);
 
       this.renderChart1(zonas, inscritos, dia1, dia2);
+    });
+  }
+
+  getDistribucionData() {
+    this.reportService.getAsistenciaTotal().subscribe((data) => {
+      const totalInscritos = data.total_inscritos || 0;
+      const totalDia1 = data.total_dia1 || 0;
+      const totalDia2 = data.total_dia2 || 0;
+
+      this.renderChart3(totalInscritos, totalDia1, totalDia2);
     });
   }
 
@@ -152,6 +164,39 @@ export class GraphicsComponent implements OnInit {
           }
         },
       },
+    });
+  }
+
+  renderChart3(totalInscritos: number, totalDia1: number, totalDia2: number) {
+    this.destroyChart(this.chart3);
+    this.chart3 = new Chart('canvas3', {
+      type: 'pie',
+      data: {
+        labels: ['Total Inscritos', 'Asistencia Día 1', 'Asistencia Día 2'],
+        datasets: [{
+          label: '',
+          data: [totalInscritos, totalDia1, totalDia2],
+          backgroundColor: [
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(153, 102, 255, 0.6)'
+          ],
+          borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          }
+        }
+      }
     });
   }
 }
