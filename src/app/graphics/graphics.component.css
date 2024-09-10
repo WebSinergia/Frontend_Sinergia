@@ -15,6 +15,10 @@
   box-sizing: border-box;
 }
 
+.pie-canvas {
+  max-height: 400px;
+}
+
 .graph {
   width: 100%;
   overflow: hidden;
