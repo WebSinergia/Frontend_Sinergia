@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../services/report.service';
-import { Chart, registerables } from 'chart.js/auto';
+import { Chart, registerables } from 'chart.js';
 
 @Component({
-  selector: 'app-graphics',
+  selector: 'app-comparativa',
   templateUrl: './graphics.component.html',
-  styleUrl: './graphics.component.css'
+  styleUrls: ['./graphics.component.css'],
 })
-export class GraphicsComponent {
-  chart: any;
+export class GraphicsComponent implements OnInit {
+  chart1: any;
+  chart2: any;
 
   constructor(private reportService: ReportService) {
     Chart.register(...registerables);
@@ -16,60 +17,141 @@ export class GraphicsComponent {
 
   ngOnInit(): void {
     this.getAsistenciaData();
+    this.getComparativaData();
   }
 
   getAsistenciaData() {
-    this.reportService.getFirstChartData()
-      .subscribe((data) => {
-        const zones = data.map(item => item.us_zone);
-        const totalInscritos = data.map(item => item.total_inscritos);
-        const asistentesDia1 = data.map(item => item.asistentes_dia1);
-        const asistentesDia2 = data.map(item => item.asistentes_dia2);
+    this.reportService.getSecondChartData().subscribe((data) => {
+      const dia1CC = data.dia1?.CC || 0;
+      const dia1AU = data.dia1?.AU || 0;
+      const dia2CC = data.dia2?.CC || 0;
+      const dia2AU = data.dia2?.AU || 0;
 
-        this.renderChart(zones, totalInscritos, asistentesDia1, asistentesDia2);
-      });
+      this.renderChart2([dia1CC, dia1AU], [dia2CC, dia2AU]);
+    });
   }
 
-  renderChart(zones: string[], inscritos: number[], dia1: number[], dia2: number[]) {
-    this.chart = new Chart('canvas', {
+  getComparativaData() {
+    this.reportService.getFirstChartData().subscribe((data) => {
+      const zonas = data.map((item) => item.us_zone);
+      const inscritos = data.map((item) => item.total_inscritos);
+      const dia1 = data.map((item) => item.asistentes_dia1);
+      const dia2 = data.map((item) => item.asistentes_dia2);
+
+      this.renderChart1(zonas, inscritos, dia1, dia2);
+    });
+  }
+
+  renderChart1(
+    zonas: string[],
+    inscritos: number[],
+    dia1: number[],
+    dia2: number[]
+  ) {
+    this.chart1 = new Chart('canvas1', {
       type: 'bar',
       data: {
-        labels: zones,
+        labels: zonas,
         datasets: [
           {
             label: 'Inscritos',
             data: inscritos,
-            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          },
-          {
-            label: 'Asistencia Día 1',
-            data: dia1,
             backgroundColor: 'rgba(75, 192, 192, 0.6)',
             borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
+            borderRadius: 7,
+            borderWidth: 2,
           },
           {
-            label: 'Asistencia Día 2',
-            data: dia2,
+            label: 'Asistentes Día 1',
+            data: dia1,
             backgroundColor: 'rgba(255, 159, 64, 0.6)',
             borderColor: 'rgba(255, 159, 64, 1)',
-            borderWidth: 1
-          }
-        ]
+            borderRadius: 7,
+            borderWidth: 2,
+          },
+          {
+            label: 'Asistentes Día 2',
+            data: dia2,
+            backgroundColor: 'rgba(153, 102, 255, 0.6)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderRadius: 7,
+            borderWidth: 2,
+          },
+        ],
       },
       options: {
         responsive: true,
         scales: {
           x: {
-            beginAtZero: true
+            stacked: false,
+            title: {
+              display: true,
+              text: 'Zona',
+            },
           },
           y: {
-            beginAtZero: true
+            stacked: false,
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Cantidad',
+            },
+          },
+        },
+      },
+    });
+  }
+
+  destroyChart(chart: Chart | undefined) {
+    console.log('Destro');
+    chart?.destroy();
+  }
+
+  renderChart2(dia1Data: number[], dia2Data: number[]) {
+    this.chart2 = new Chart('canvas2', {
+      type: 'bar',
+      data: {
+        labels: ['Día 1', 'Día 2'],
+        datasets: [
+          {
+            label: 'Circuito Cerrado',
+            data: [dia1Data[0], dia2Data[0]],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderRadius: 5,
+            borderWidth: 1,
+          },
+          {
+            label: 'Auditorio',
+            data: [dia1Data[1], dia2Data[1]],
+            backgroundColor: 'rgba(255, 159, 64, 0.6)',
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderRadius: 5,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            stacked: true,
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Día',
+            },
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Cantidad de Asistentes',
+            },
           }
-        }
-      }
+        },
+      },
     });
   }
 }

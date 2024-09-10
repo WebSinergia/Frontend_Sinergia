@@ -46,4 +46,11 @@ export class ReportService {
       .get<any[]>(url)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getSecondChartData(): Observable<any> {
+    const url = `${this.basePath}/asistence-days`;
+    return this.http
+      .get<any>(url)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }
